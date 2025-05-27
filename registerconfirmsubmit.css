@@ -85,6 +85,7 @@ nav {
 .highlight {
     color: #4a89dc;
     background: linear-gradient(to right, #2c4f91, #4a89dc);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
