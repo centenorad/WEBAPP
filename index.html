@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/logo.svg" alt="Logo">
+        </div>
+        <div></div>
+        <div class="nav-links" id="nav-links">
+            <button class="active" onClick="selectNavRoute(0)">register</button>
+            <button onClick="selectNavRoute(1)">confirm</button>
+            <button onClick="selectNavRoute(2)">submit</button>
+        </div>
+        <div></div>
+    </nav>
+    <main>
+        <div class="form-container" id="register">
+            <h1>CREATE YOUR <span class="highlight">FREE</span> ACCOUNT IN 30 SECONDS</h1>
+
+            <p class="subheading">JOIN THOUSANDS OF BUSINESSES WHO ARE EASILY ACQUIRING QUALIFIED APPOINTMENTS,
+                EMPLOYEES AND LEADS EVERY DAY.</p>
+
+            <form>
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+                <input type="email" placeholder="Email Address">
+                <input type="password" placeholder="Password">
+
+                <div class="login-link">
+                    Already have an account? <a href="#">Login</a>.
+                </div>
+
+                <button type="button" class="next-btn">NEXT</button>
+            </form>
+        </div>
+
+        <div class="verify-container hidden" id="confirm">
+            <h1>VERIFY YOUR <span class="highlight">IDENTITY</span></h1>
+            <p class="verify-subheading">LET YOUR INSTITUTION KNOW IT IS YOU.</p>
+
+            <div class="id-verification-box">
+                <h2>ID VERIFICATION</h2>
+
+                <p class="upload-instructions">
+                    UPLOAD A VALID ID (E.G., PASSPORT, DRIVER'S LICENSE) IN<br>
+                    JPG, PNG, OR PDF FORMAT. MAX SIZE: 5MB.
+                </p>
+
+                <div class="upload-area">
+                    <div class="upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <p class="drag-text">DRAG & DROP YOUR ID HERE OR<br>CLICK TO BROWSE</p>
+                </div>
+            </div>
+
+            <button type="button" class="next-btn">NEXT</button>
+        </div>
+
+        <div class="submit-container hidden" id="submit">
+            <!-- Main heading with highlighted word -->
+            <h1>IDEALIZE YOUR <span class="highlight">IDEAL</span> TEAM</h1>
+
+            <!-- Subheading text -->
+            <p class="submit-subheading">FROM DREAM TEAM TO REAL TEAM</p>
+
+            <!-- Roster Upload section -->
+            <div class="roster-box">
+                <h2>SUBMIT YOUR ROSTER</h2>
+
+                <p class="download-link">
+                    CLICK HERE THE DOWNLOAD THE TEMPLATE
+                </p>
+
+                <!-- Drag and drop area -->
+                <div class="upload-area">
+                    <!-- Upload icon -->
+                    <div class="upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <p class="drag-text">DRAG & DROP YOUR .DOC HERE OR<br>CLICK TO BROWSE</p>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn">SUBMIT</button>
+        </div>
+    </main>
+</body>
+
+</html>
