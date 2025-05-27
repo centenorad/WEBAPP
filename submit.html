@@ -59,5 +59,57 @@
             <button type="button" class="submit-btn">SUBMIT</button>
         </div>
     </main>
+
+    <script>
+        document.querySelector('.submit-btn').addEventListener('click', function() {
+            // Here you would typically validate that a roster was uploaded first
+            alert('Thank you for submitting your roster! We will review it shortly.');
+            // Optionally redirect to a success page or back to landing page
+            window.location.href = 'landingpage.html';
+        });
+
+        // Add drag and drop functionality
+        const uploadArea = document.querySelector('.upload-area');
+        
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#4a89dc';
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#666';
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#666';
+            const files = e.dataTransfer.files;
+            // Here you would typically handle the file upload
+            if (files.length > 0) {
+                console.log('File dropped:', files[0].name);
+            }
+        });
+
+        uploadArea.addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.doc,.docx';
+            input.click();
+
+            input.onchange = function() {
+                if (this.files && this.files[0]) {
+                    // Here you would typically handle the file upload
+                    console.log('File selected:', this.files[0].name);
+                }
+            };
+        });
+
+        // Add download template functionality
+        document.querySelector('.download-link').addEventListener('click', function() {
+            // Here you would typically provide a link to download the template
+            alert('Template download will be available soon.');
+        });
+    </script>
 </body>
 </html> 

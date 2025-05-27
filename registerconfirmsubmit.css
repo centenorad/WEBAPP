@@ -22,20 +22,19 @@
 }
 
 body {
-    background-color: #1a1a1a; /* Dark background for all pages */
+    background-color: #1a1a1a;
     color: #ffffff;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 main {
-    flex: 1;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 
@@ -143,60 +142,101 @@ nav {
  *****************************************************/
 .form-container {
     width: 100%;
-    max-width: 700px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -5%;
 }
 
 .form-container h1 {
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 42px;
+    font-weight: 500;
+    text-align: center;
     margin-bottom: 20px;
-    letter-spacing: 0.5px;
     white-space: nowrap;
+    color: #ffffff;
+    text-shadow: 0 4px 51.6px #00DCFF;
+}
+
+.form-container .highlight {
+    color: #4ECDC4;
+    font-weight: 600;
+    text-shadow: 0 4px 51.6px #00DCFF;
+    display: inline;
 }
 
 .subheading {
-    font-size: 12px;
-    color: #999;
-    margin-bottom: 40px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-bottom: 35px;
     letter-spacing: 0.5px;
-    font-weight: 300;
-    text-transform: uppercase;
+    white-space: nowrap;
+    width: 100%;
+    display: block;
 }
 
-/* Form fields and styling */
 form {
+    width: 100%;
+    max-width: 460px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 input {
-    background-color: transparent;
-    border: 1px solid;
-    border-image: linear-gradient(to right, #2c4f91, #4a89dc) 1;
-    border-radius: 2px;
-    padding: 16px;
+    width: 100%;
+    background-color: rgba(28, 28, 28, 0.5);
+    border: 1px solid #4ECDC4;
+    border-radius: 4px;
+    padding: 15px;
     color: #fff;
     outline: none;
     font-size: 14px;
+    box-shadow: 0 0 10px rgba(78, 205, 196, 0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #56E0D6;
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
 }
 
 input::placeholder {
-    color: #666;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .login-link {
     font-size: 14px;
-    color: #ccc;
-    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
+    margin: 20px 0;
 }
 
 .login-link a {
-    color: #4a89dc;
+    color: #4ECDC4;
     text-decoration: none;
+    margin-left: 5px;
+}
+
+.next-btn {
+    background-color: #0052CC;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #0747A6;
+    box-shadow: 0 0 15px rgba(0, 82, 204, 0.3);
 }
 
 
