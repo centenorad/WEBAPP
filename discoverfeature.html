@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Our Features</title>
+    <link rel="stylesheet" href="dicoverfeature.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h2 class="section-title">DISCOVER OUR FEATURES</h2>
+            <h1 class="main-title">Streamline your club management</h1>
+            <p class="subtitle">Access tools for document handling, proposal submissions, and license renewals to ensure smooth club operations.</p>
+        </header>
+
+        <!-- Main Feature Showcase Section -->
+        <div class="main-feature">
+            <!-- Document Management Feature -->
+            <div class="feature-content active" id="document-management">
+                <div class="feature-image">
+                    <img src="images/document_handling 1 (1).png" alt="Document Handling">
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <span>Request</span>
+                        <span>Handling</span>
+                    </h3>
+                    <p>Review and process club requests efficiently.</p>
+                    <button class="learn-more">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Proposal System Feature -->
+            <div class="feature-content" id="proposal-submissions">
+                <div class="feature-image">
+                    <img src="images/Media (5).png" alt="Proposal Submissions">
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <span>Feedback</span>
+                        <span>System</span>
+                    </h3>
+                    <p>Admins can provide clear feedback on club requests.</p>
+                    <button class="learn-more">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Activity Tracking Feature -->
+            <div class="feature-content" id="report-generation">
+                <div class="feature-image">
+                    <img src="images/Media (4).png" alt="Report Generation">
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <span>Activity</span>
+                        <span>Tracking</span>
+                    </h3>
+                    <p>Monitor pending activities with a user-friendly dashboard.</p>
+                    <button class="learn-more">Learn More</button>
+                </div>
+            </div>
+
+            <!-- License Management Feature -->
+            <div class="feature-content" id="license-management">
+                <div class="feature-image">
+                    <img src="images/optimization 1.png" alt="License Management">
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <span>Admin</span>
+                        <span>Tools</span>
+                    </h3>
+                    <p>Enhance administrative efficiency with our comprehensive tools.</p>
+                    <button class="learn-more">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Selection Grid -->
+        <div class="features-grid">
+            <div class="feature" data-target="document-management">
+                <h3>
+                    <span>Document</span>
+                    <span>Management</span>
+                </h3>
+                <p>Easily upload documents for club setup and renewals.</p>
+            </div>
+            <div class="feature" data-target="proposal-submissions">
+                <h3>
+                    <span>Proposal</span>
+                    <span>Submissions</span>
+                </h3>
+                <p>Submit and monitor new activity proposals effortlessly.</p>
+            </div>
+            <div class="feature" data-target="report-generation">
+                <h3>
+                    <span>Report</span>
+                    <span>Generation</span>
+                </h3>
+                <p>Compile detailed reports for completed activities.</p>
+            </div>
+            <div class="feature" data-target="license-management">
+                <h3>
+                    <span>License</span>
+                    <span>Management</span>
+                </h3>
+                <p>Renew club licenses for the upcoming school year with ease.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Features Section -->
+        <div class="bottom-features">
+            <div class="bottom-feature">
+                <img src="images/Media (6).png" alt="Platform Capabilities">
+                <h3>Discover our platform's capabilities</h3>
+                <p>Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
+            </div>
+            <div class="bottom-feature">
+                <img src="images/Media (5).png" alt="Optimize RSO">
+                <h3>Optimize your RSO operations</h3>
+                <p>Our system ensures seamless and effective management of RSOs.</p>
+            </div>
+            <div class="bottom-feature">
+                <img src="images/Media (4).png" alt="Track Activities">
+                <h3>Track activities comprehensively</h3>
+                <p>Utilize our tools for detailed insights into RSO activities.</p>
+            </div>
+            <div class="bottom-feature">
+                <img src="images/optimization 1.png" alt="Simplify Admin">
+                <h3>Simplify admin workflows</h3>
+                <p>Efficiently manage requests and feedback with our streamlined system.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Feature Switching -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all feature buttons and content sections
+            const features = document.querySelectorAll('.feature');
+            const featureContents = document.querySelectorAll('.feature-content');
+
+            // Add click event to each feature button
+            features.forEach(feature => {
+                feature.addEventListener('click', () => {
+                    const target = feature.getAttribute('data-target');
+                    
+                    // Hide all feature contents
+                    featureContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Show the selected feature content
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
