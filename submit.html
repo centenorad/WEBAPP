@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set the character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Make the website responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title shown in browser tab -->
+    <title>Submit Roster</title>
+    <!-- Linking to the same CSS file as other pages -->
+    <link rel="stylesheet" href="registerconfirmsubmit.css">
+</head>
+<body>
+    <!-- Navigation bar with logo and navigation links -->
+    <nav>
+        <div class="logo">
+            <!-- Logo image for the website -->
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <!-- Navigation links to different steps/pages -->
+            <a href="register.html">register</a>
+            <a href="confirm.html">confirm</a>
+            <a href="submit.html" class="active">submit</a>
+        </div>
+    </nav>
+    
+    <!-- Main content area for the roster submission form -->
+    <main>
+        <div class="form-container">
+            <!-- Main heading for the submit page -->
+            <h1>IDEALIZE YOUR <span class="highlight">IDEAL</span> TEAM</h1>
+            <!-- Subheading for additional context -->
+            <p class="subheading">FROM DREAM TEAM TO REAL TEAM</p>
+            <!-- Roster submission box -->
+            <div class="roster-box">
+                <h2>SUBMIT YOUR ROSTER</h2>
+                <p class="download-link">CLICK HERE THE DOWNLOAD THE TEMPLATE</p>
+                <!-- Upload area for roster file -->
+                <div class="upload-area">
+                    <div class="upload-icon">
+                        <!-- SVG icon for upload -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <p class="drag-text">DRAG & DROP YOUR .DOC HERE OR<br>CLICK TO BROWSE</p>
+                </div>
+                <!-- Button to submit the roster -->
+                <button type="button" class="submit-btn">SUBMIT</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for handling the submit button click -->
+    <script>
+        document.querySelector('.submit-btn').addEventListener('click', function() {
+            alert('Thank you for submitting your roster! We will review it shortly.');
+        });
+    </script>
+</body>
+</html> 

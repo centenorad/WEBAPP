@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set the character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Make the website responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the page shown in the browser tab -->
+    <title>NYXOS - Club Management</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="landingpage.css">
+</head>
+<body>
+    <!-- This is the header section that contains the website's logo and navigation links -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <!-- Logo image and brand name for the website -->
+                <img src="images/logo.png" alt="NYXOS Icon">
+                <span class="logo-text">NYXOS</span>
+            </div>
+            <div class="nav-links">
+                <!-- Navigation links to different sections of the page -->
+                <a href="#features">features</a>
+                <a href="#about">about us</a>
+                <a href="#contact">contact us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section: main banner with images and call-to-action -->
+    <main class="hero">
+        <div class="card hero-card">
+            <div class="hero-content">
+                <!-- 2x2 grid of images on the left side of the hero section -->
+                <div class="image-grid">
+                    <div class="grid-item">
+                        <img src="images/image6.png" alt="Students collaborating">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/image7.png" alt="Team discussion">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/image8.png" alt="Business meeting">
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/image9.png" alt="Office work">
+                    </div>
+                </div>
+                <!-- Text content and call-to-action button on the right side -->
+                <div class="text-content">
+                    <!-- Main heading with a highlighted word -->
+                    <h2>Streamline your <br>club management <br>with <span class="highlight gradient-text">Ease</span></h2>
+                    <!-- Subheading below the main heading -->
+                    <p class="hero-subheading">Easily organize and monitor school activities.</p>
+                    <!-- Call-to-action button that links to the registration page -->
+                    <button class="cta-button" onclick="window.location.href='register.html'">GET STARTED</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Organizations section: search bar and grid of organization cards -->
+    <section class="organizations">
+        <!-- Section title -->
+        <h2 class="section-title">Get to Know Our Different Organizations</h2>
+        <div class="search-container">
+            <!-- Search input for finding organizations -->
+            <input type="text" placeholder="Search for an RSO..." class="search-input">
+            <!-- Search button with a magnifying glass icon -->
+            <button class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+        <!-- Grid layout for organization cards -->
+        <div class="org-grid">
+            <!-- Each org-card represents a student organization -->
+            <div class="org-card">
+                <div class="org-card-header">
+                    <!-- Organization icon (circle) -->
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <!-- Organization name -->
+                    <h3>Computer Society</h3>
+                </div>
+                <!-- Organization description -->
+                <p>The Computer Society is dedicated to advancing computer science skills, programming knowledge, and networking among its members through workshops, competitions, and tech events.</p>
+                <!-- Learn More link for more info -->
+                <button class="learn-more">Learn More</button>
+            </div>
+            <div class="org-card">
+                <div class="org-card-header">
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <h3>ISITE</h3>
+                </div>
+                <p>The Information Systems and Information Technology Enthusiasts (ISITE) club is for students passionate about IT, systems development, and digital innovation, offering hands-on projects and seminars.</p>
+                <button class="learn-more">Learn More</button>
+            </div>
+            <div class="org-card">
+                <div class="org-card-header">
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <h3>PICE</h3>
+                </div>
+                <p>The Philippine Institute of Civil Engineers (PICE) student chapter promotes civil engineering knowledge, leadership, and camaraderie through technical talks, site visits, and community projects.</p>
+                <button class="learn-more">Learn More</button>
+            </div>
+            <div class="org-card">
+                <div class="org-card-header">
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <h3>Computer Society</h3>
+                </div>
+                <p>The Computer Society is dedicated to advancing computer science skills, programming knowledge, and networking among its members through workshops, competitions, and tech events.</p>
+                <button class="learn-more">Learn More</button>
+            </div>
+            <div class="org-card">
+                <div class="org-card-header">
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <h3>ISITE</h3>
+                </div>
+                <p>The Information Systems and Information Technology Enthusiasts (ISITE) club is for students passionate about IT, systems development, and digital innovation, offering hands-on projects and seminars.</p>
+                <button class="learn-more">Learn More</button>
+            </div>
+            <div class="org-card">
+                <div class="org-card-header">
+                    <div class="org-icon">
+                        <div class="icon-circle"></div>
+                    </div>
+                    <h3>PICE</h3>
+                </div>
+                <p>The Philippine Institute of Civil Engineers (PICE) student chapter promotes civil engineering knowledge, leadership, and camaraderie through technical talks, site visits, and community projects.</p>
+                <button class="learn-more">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps section: shows the process to create an organization -->
+    <section class="steps-section">
+        <div class="steps-card">
+            <!-- Label for the steps section -->
+            <span class="step-label">STEP</span>
+            <!-- Main title for the steps section -->
+            <h2 class="steps-title">Create your own Organization with ease</h2>
+            <!-- Container for all step boxes -->
+            <div class="steps-container">
+                <!-- Step 1: highlighted and includes a button -->
+                <div class="step-box active">
+                    <h3><span class="step-highlight">Step</span> 1</h3>
+                    <p>Create an initial list of officers for the new RSO</p>
+                    <button class="create-button">CREATE NOW</button>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <p>Submit the draft and wait for the approval.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <p>Once approved, complete the requirements.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <p>Get approved, then you're done</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features section: highlights platform features and tools -->
+    <section class="discover-features">
+        <div class="container">
+            <header>
+                <!-- Section title and subtitle -->
+                <h2 class="section-title">DISCOVER OUR FEATURES</h2>
+                <h1 class="main-title">Streamline your club management</h1>
+                <p class="subtitle">Access tools for document handling, proposal submissions, and license renewals to ensure smooth club operations.</p>
+            </header>
+            <!-- Main feature showcase with tabbed content -->
+            <div class="main-feature">
+                <!-- Each feature-content is a tabbed panel -->
+                <div class="feature-content active" id="document-management">
+                    <div class="feature-image">
+                        <img src="images/image0.png" alt="Document Handling">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Request</span>
+                            <span>Handling</span>
+                        </h3>
+                        <p>Review and process club requests efficiently.</p>
+                        <button class="learn-more">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-content" id="proposal-submissions">
+                    <div class="feature-image">
+                        <img src="images/image1.png" alt="Proposal Submissions">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Feedback</span>
+                            <span>System</span>
+                        </h3>
+                        <p>Admins can provide clear feedback on club requests.</p>
+                        <button class="learn-more">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-content" id="report-generation">
+                    <div class="feature-image">
+                        <img src="images/image2.png" alt="Report Generation">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Activity</span>
+                            <span>Tracking</span>
+                        </h3>
+                        <p>Monitor pending activities with a user-friendly dashboard.</p>
+                        <button class="learn-more">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-content" id="license-management">
+                    <div class="feature-image">
+                        <img src="images/image3.png" alt="License Management">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Admin</span>
+                            <span>Tools</span>
+                        </h3>
+                        <p>Enhance administrative efficiency with our comprehensive tools.</p>
+                        <button class="learn-more">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature selection grid for quick navigation -->
+            <div class="features-grid">
+                <div class="feature" data-target="document-management">
+                    <h3>Document Management</h3>
+                    <p>Easily upload documents for club setup and renewals.</p>
+                </div>
+                <div class="feature" data-target="proposal-submissions">
+                    <h3>Proposal Submissions</h3>
+                    <p>Submit and monitor new activity proposals effortlessly.</p>
+                </div>
+                <div class="feature" data-target="report-generation">
+                    <h3>Report Generation</h3>
+                    <p>Compile detailed reports for completed activities.</p>
+                </div>
+                <div class="feature" data-target="license-management">
+                    <h3>License Management</h3>
+                    <p>Renew club licenses for the upcoming school year with ease.</p>
+                </div>
+            </div>
+            <!-- Bottom features: additional platform highlights -->
+            <div class="bottom-features">
+                <div class="bottom-feature">
+                    <img src="images/image4.png" alt="Platform Capabilities">
+                    <h3>Discover our platform's capabilities</h3>
+                    <p>Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
+                </div>
+                <div class="bottom-feature">
+                    <img src="images/image3.png" alt="Optimize RSO">
+                    <h3>Optimize your RSO operations</h3>
+                    <p>Our system ensures seamless and effective management of RSOs.</p>
+                </div>
+                <div class="bottom-feature">
+                    <img src="images/image2.png" alt="Track Activities">
+                    <h3>Track activities comprehensively</h3>
+                    <p>Utilize our tools for detailed insights into RSO activities.</p>
+                </div>
+                <div class="bottom-feature">
+                    <img src="images/image1.png" alt="Simplify Admin">
+                    <h3>Simplify admin workflows</h3>
+                    <p>Efficiently manage requests and feedback with our streamlined system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal section: highlights proposal submission feature -->
+    <section class="proposal-section">
+        <div class="proposal-header">
+            <span class="section-label">DISCOVER OUR FEATURES</span>
+            <h2>Submit proposals in easy ways</h2>
+            <p>Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
+        </div>
+        <div class="proposal-card">
+            <img src="images/image10.png" alt="Student using laptop">
+        </div>
+    </section>
+
+    <!-- FAQ section: frequently asked questions and contact link -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-label">Frequently Asked Questions</span>
+                <h2>How to Use Our Platform?</h2>
+                <p>Discover efficient ways to manage student organizations and enhance administrative processes.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How to start a new RSO?</h3>
+                    <p>Begin by uploading essential documents like bylaws and member lists for SDAO approval.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How to propose a new activity?</h3>
+                    <p>Submit a renewal request for the next school year, ensuring all requirements are met.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What are the admin duties?</h3>
+                </div>
+            </div>
+            <div class="contact-link">
+                <a href="#contact">Contact Us <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section: call-to-action and login -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <h2>Streamline your club management</h2>
+                <p>Manage student organizations effortlessly with our comprehensive tools.</p>
+            </div>
+            <div class="footer-buttons">
+                <a href="register.html" class="get-started-btn">GET STARTED</a>
+                <a href="#" class="login-btn">LOG IN</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for switching feature tabs in the features section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all feature grid items and feature content panels
+            const features = document.querySelectorAll('.feature');
+            const featureContents = document.querySelectorAll('.feature-content');
+            // Add click event to each feature grid item
+            features.forEach(feature => {
+                feature.addEventListener('click', () => {
+                    const target = feature.getAttribute('data-target');
+                    // Hide all feature content panels
+                    featureContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    // Show the selected feature content panel
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
