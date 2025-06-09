@@ -1,0 +1,257 @@
+/* Set up the main background and font for the whole page */
+body {
+    background: #232323; /* Dark background color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat font */
+    color: #fff; /* Set text color to white */
+}
+
+/* Outer container to center everything vertically and horizontally */
+.login-outer {
+    min-height: 100vh; /* Take at least the full height of the screen */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Main container for the login page */
+.login-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem; /* Space between left and right */
+    padding: 2rem 0;
+    overflow: visible;
+}
+
+/* Left side: login form */
+.login-left {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Logo at the top left */
+.login-logo-top {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 10;
+}
+.login-logo-top img {
+    width: 38px;
+    height: auto;
+}
+
+.login-logo img {
+    margin-bottom: 0;
+}
+
+/* Make the login title, subtitle, and form left-aligned */
+.login-title,
+.login-subtitle,
+.login-form {
+    text-align: left;
+    width: 100%;
+}
+
+/* Big login title */
+.login-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-shadow: 0 0 16px #90f7ec, 0 0 32px #32ccbc;
+}
+
+/* Smaller subtitle under the title */
+.login-subtitle {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+/* The login form itself */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Input fields for email and password */
+.login-input {
+    width: 100%;
+    padding: 14px 18px;
+    background: #232323;
+    color: #fff;
+    border: 1px solid;
+    border-image: linear-gradient(to right, #90f7ec, #32ccbc, #2a2a72) 1;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 0.2rem;
+    transition: border-color 0.2s;
+}
+.login-input:focus {
+    border-image: linear-gradient(to right, #32ccbc, #90f7ec, #2a2a72) 1;
+}
+
+/* Options row: stay signed in and forgot password */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    margin-bottom: 0.5rem;
+}
+.stay-signed-in {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+.forgot-password {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Register link for new users */
+.login-register {
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1rem;
+    color: #fff;
+}
+.register-link {
+    color: #90f7ec;
+    text-decoration: underline;
+    margin-left: 0.2em;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #1657E8 0%, #32ccbc 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+    transition: background 0.2s;
+}
+.login-btn:hover {
+    background: linear-gradient(90deg, #32ccbc 0%, #1657E8 100%);
+}
+
+/* Right side: feature or image area */
+.login-right {
+    min-width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid of images (for the last slide in loginshift0.html) */
+.login-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.2rem;
+    width: 650px;
+    height: 500px;
+}
+.login-img {
+    object-fit: cover;
+    border-radius: 8px;
+    background: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Responsive design: adjusts layout for smaller screens */
+@media (max-width: 1200px) {
+    .login-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .login-right {
+        min-width: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    .login-images {
+        width: 100%;
+        max-width: 650px;
+    }
+}
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .login-left, .login-right {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-title,
+    .login-subtitle,
+    .login-form {
+        text-align: center;
+    }
+    .login-images {
+        width: 100%;
+        height: auto;
+        gap: 0.8rem;
+    }
+    .login-img {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+    }
+}
+@media (max-width: 600px) {
+    .login-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .login-left, .login-right {
+        padding: 0;
+        max-width: 100%;
+    }
+    .login-title {
+        font-size: 2rem;
+    }
+    .login-images {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        width: 100%;
+        gap: 0.5rem;
+    }
+    .login-img {
+        width: 100%;
+        height: auto;
+    }
+}

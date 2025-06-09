@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set the character encoding for the document -->
+    <meta charset="UTF-8">
+    <!-- Make the website responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the page shown in the browser tab -->
+    <title>Registration Page</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="registerconfirmsubmit.css">
+</head>
+<body>
+    <!-- Logo at the top, matching loginshift0.html -->
+    <div class="login-logo-top">
+        <img src="assets/lg.svg" alt="Logo" />
+    </div>
+    <!-- Navigation bar with navigation links only -->
+    <nav>
+        <div class="nav-links">
+            <a href="register.html" class="active">register</a>
+            <a href="confirm.html">confirm</a>
+            <a href="submit.html">submit</a>
+        </div>
+    </nav>
+    
+    <!-- Main content area for the registration form -->
+    <main>
+        <div class="form-container">
+            <!-- Main heading for the registration page -->
+            <h1>CREATE YOUR <span class="highlight">FREE</span> ACCOUNT</h1>
+            <!-- Subheading for additional context -->
+            <p class="subheading">JOIN THOUSANDS OF BUSINESSES WHO ARE EASILY ACQUIRING QUALIFIED APPOINTMENTS.</p>
+            <!-- Registration form -->
+            <form>
+                <div class="input-group">
+                    <!-- Input fields for user details -->
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                    <input type="email" placeholder="Email Address">
+                    <input type="password" placeholder="Password">
+                </div>
+                <!-- Link for users who already have an account -->
+                <div class="login-link">
+                    Already have an account? <a href="loginshift0.html">Login</a>
+                </div>
+                <!-- Button to proceed to the next step -->
+                <button type="button" class="next-btn">NEXT</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- JavaScript for handling the next button click -->
+    <script>
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            // Here you would typically validate the form first
+            window.location.href = 'confirm.html';
+        });
+    </script>
+</body>
+</html> 
