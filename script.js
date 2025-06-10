@@ -24,33 +24,8 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// //observer for fade-in effect
-// const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//         console.log(entry);
-//         // Check if the element is intersecting (visible in viewport)
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add('show');
-//             // Optionally, unobserve the element after it has been shown
-//             observer.unobserve(entry.target);
-
-
-//         } else {    
-//             entry.target.classList.remove('show');
-//         }
-//     });
-// }, {
-//     threshold: 0.1 // Adjust this value to control when the fade-in effect triggers
-// });
-
-// // Smooth scroll anuimations
-// const hiddenElements = document.querySelectorAll('.hidden');
-// hiddenElements.forEach((el) => {
-//     observer.observe(el);
-// });
-
 // Placeholder RSO data with longer lists to test scrolling
-const rsoData = [
+let rsoData = [
     {
         id: "1",
         name: "Computer Society",
@@ -120,7 +95,6 @@ const rsoData = [
 ];
 
 
-
 // Get modal elements
 const modal = document.getElementById("rso-modal");
 const modalLogo = modal.querySelector(".rso-logo");
@@ -131,60 +105,158 @@ const modalEventsList = modal.querySelector(".rso-events .item-lists");
 const modalOfficersList = modal.querySelector(".rso-officers .item-lists");
 const closeModal = modal.querySelector(".close-modal");
 
+
+async function test() {
+
+    console.log("test1");
+    const response = await fetch('http://localhost/rso-management-back/rso', {
+        method: 'GET'
+    });
+
+    const responseText = await response.text();
+
+    const rsos = JSON.parse(responseText);
+    
+    const rsoGrid = document.getElementById("rso-grid");
+
+    rsos.forEach(rso => {
+
+        const rsoCard = document.createElement("div");
+        rsoCard.setAttribute('class', 'rso-card');
+        rsoCard.setAttribute('data-rso-id', rso.rso_id);
+        rsoCard.innerHTML = `
+                <div class="rso-icon"></div>
+                <h3>${rso.name}</h3>
+                <p>${rso.description}</p>
+                <a href="#" class="learn-more">Learn More</a>
+        `;
+        rsoCard.addEventListener("click", () => {
+
+            if (rso) {
+                // Populate modal with placeholder data
+                modalLogo.src = rso.logopath;
+                modalIcon.src = rso.logopath;
+                modalTitle.textContent = rso.name;
+                modalDescription.textContent = rso.description;
+
+                rso.events = [
+                { title: "Coding Workshop - June 2025", image: "assets/event1.jpg" },
+                { title: "Hackathon - July 2025", image: "assets/event2.jpg" },
+                { title: "Tech Talk: AI Trends - August 2025", image: "assets/event3.jpg" },
+                { title: "Web Development Bootcamp - September 2025", image: "assets/event4.jpg" },
+                { title: "Cybersecurity Seminar - October 2025", image: "assets/event5.jpg" }
+            ];
+
+                // Populate events
+                modalEventsList.innerHTML = "";
+                rso.events.forEach(event => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <div class="shader hover event-cards">
+                            <img class ="main_event"src="${event.image}" alt="${event.title}">
+                        </div>
+                        <span>${event.title}</span>
+                    `;
+                    modalEventsList.appendChild(li);
+                });
+
+                // // Populate officers
+                // modalOfficersList.innerHTML = "";
+                // rso.officers.forEach(officer => {
+                //     const li = document.createElement("li");
+                //     li.innerHTML = `
+                //         <div class="rso-icon hover">
+                //             <img src="${officer.image}" alt="${officer.name}">
+                //         </div>
+                //         <span>${officer.name}</span>
+                //     `;
+                //     modalOfficersList.appendChild(li);
+                // });
+
+                // Show the modal
+                modal.style.display = "flex";
+            }
+        });
+        rsoGrid.appendChild(rsoCard);
+
+        rsoData.push({
+            id: rso.rso_id,
+            name: rso.name,
+            description: rso.description,
+            logo: rso.logopath,
+            icon: rso.logopath,
+            events: [
+                { title: "Coding Workshop - June 2025", image: "assets/event1.jpg" },
+                { title: "Hackathon - July 2025", image: "assets/event2.jpg" },
+                { title: "Tech Talk: AI Trends - August 2025", image: "assets/event3.jpg" },
+                { title: "Web Development Bootcamp - September 2025", image: "assets/event4.jpg" },
+                { title: "Cybersecurity Seminar - October 2025", image: "assets/event5.jpg" }
+            ],
+            officers: [
+                { name: "Jane Doe - President", image: "assets/officer1.jpg" },
+                { name: "John Smith - Vice President", image: "assets/officer2.jpg" },
+                { name: "Alice Johnson - Treasurer", image: "assets/officer3.jpg" },
+                { name: "Bob Lee - Secretary", image: "assets/officer4.jpg" },
+                { name: "Sarah Kim - Events Coordinator", image: "assets/officer5.jpg" }
+            ]
+        });
+    });
+    return true;
+}
+
+const test1 = test();
+
+if (test1) {
 // Get all RSO cards
 const rsoCards = document.querySelectorAll(".rso-card");
 
 // Add click event to each RSO card
-rsoCards.forEach(card => {
-    card.addEventListener("click", () => {
-        const rsoId = card.getAttribute("data-rso-id");
-        const rso = rsoData.find(item => item.id === rsoId);
+// rsoCards.forEach(card => {
+//     card.addEventListener("click", () => {
+//         const rsoId = card.getAttribute("data-rso-id");
+//         const rso = rsoData.find(item => item.id === rsoId);
 
-        if (rso) {
-            // Populate modal with placeholder data
-            modalLogo.src = rso.logo;
-            modalIcon.src = rso.icon;
-            modalTitle.textContent = rso.name;
-            modalDescription.textContent = rso.description;
+//         console.log(rsoId);
+//         console.log(rso);
 
-            // Populate events
-            modalEventsList.innerHTML = "";
-            rso.events.forEach(event => {
-                const li = document.createElement("li");
-                // li.innerHTML = `
-                //     <div class="rso-icon">
-                //         <img src="${event.image}" alt="${event.title}">
-                //     </div>
-                //     <span>${event.title}</span>
-                // `;
-                // modalEventsList.appendChild(li);
-                  li.innerHTML = `
-                    <div class="shader hover event-cards">
-                        <img class ="main_event"src="${event.image}" alt="${event.title}">
-                    </div>
-                    <span>${event.title}</span>
-                `;
-                modalEventsList.appendChild(li);
-            });
+//         if (rso) {
+//             // Populate modal with placeholder data
+//             modalLogo.src = rso.logo;
+//             modalIcon.src = rso.icon;
+//             modalTitle.textContent = rso.name;
+//             modalDescription.textContent = rso.description;
 
-            // Populate officers
-            modalOfficersList.innerHTML = "";
-            rso.officers.forEach(officer => {
-                const li = document.createElement("li");
-                li.innerHTML = `
-                    <div class="rso-icon hover">
-                        <img src="${officer.image}" alt="${officer.name}">
-                    </div>
-                    <span>${officer.name}</span>
-                `;
-                modalOfficersList.appendChild(li);
-            });
+//             // Populate events
+//             modalEventsList.innerHTML = "";
+//             rso.events.forEach(event => {
+//                 const li = document.createElement("li");
+//                   li.innerHTML = `
+//                     <div class="shader hover event-cards">
+//                         <img class ="main_event"src="${event.image}" alt="${event.title}">
+//                     </div>
+//                     <span>${event.title}</span>
+//                 `;
+//                 modalEventsList.appendChild(li);
+//             });
 
-            // Show the modal
-            modal.style.display = "flex";
-        }
-    });
-});
+//             // Populate officers
+//             modalOfficersList.innerHTML = "";
+//             rso.officers.forEach(officer => {
+//                 const li = document.createElement("li");
+//                 li.innerHTML = `
+//                     <div class="rso-icon hover">
+//                         <img src="${officer.image}" alt="${officer.name}">
+//                     </div>
+//                     <span>${officer.name}</span>
+//                 `;
+//                 modalOfficersList.appendChild(li);
+//             });
+
+//             // Show the modal
+//             modal.style.display = "flex";
+//         }
+//     });
+// });
 
 // Close modal when clicking the close button
 closeModal.addEventListener("click", () => {
@@ -263,4 +335,8 @@ if (featuresTrigger && featuresPopup) {
             featuresPopup.style.display = 'none';
         }
     });
+}
+}
+else {
+    console.log("not work")
 }
