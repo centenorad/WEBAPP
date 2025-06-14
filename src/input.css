@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme{
+    --color-bg1: #131D3D;
+    --color-nc800: #081028;
+    --color-selectedCyan: #04F5F1;
+    --color-selectedli: #0A1330
+}
+
+.sub-menu{
+    visibility: visible;
+}
+
+.main-item:hover .sub-menu{
+    display: block;
+}
+
+   #sidebar {
+      transition: width 300ms ease-in-out;
+    }
+    #sidebar.collapsed {
+      width: 64px;
+    }
+    .sidebar-content {
+      transition: opacity 300ms ease-in-out;
+      opacity: 1;
+      display:flex;
+    }
+    #sidebar.collapsed .sidebar-content {
+      opacity: 0;
+      display: none;
+    }
+    #toggleSidebar {
+      transition: transform 300ms ease-in-out;
+      width: 24px;
+      height: 24px;
+    }
+    #sidebar.collapsed #toggleSidebar {
+      transform: rotate(180deg);
+    }
+
+
+    /* DIto niyo lagay */
+
+    
+.list-item {
+  @apply  justify-start w-full h-auto px-4 py-4 text-white bg-nc800 space-x-2 hover:bg-selectedli rounded;
+}
+
+.sub-list-item {
+  @apply  visible justify-start w-full px-4 py-2 text-white bg-bg1 space-y-2 hover:bg-selectedCyan rounded text-sm;
+}
+.icon-hover {
+  @apply text-icon_hover hover:text-selectedCyan transition-colors;
+}

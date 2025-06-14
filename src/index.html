@@ -1,0 +1,2084 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="flex h-screen bg-nc800">
+  <!-- Sidebar -->
+  <div id="sidebar" class="flex flex-col w-64 bg-bg1 shadow-2xl items-center rounded-r-md pt-4 space-y-4 transition-all duration-300 ease-in-out">
+    <!-- Logo -->
+    <div class="flex flex-row h-[56px] w-full justify-between px-4 items-center">
+      <div class="flex justify-start  sidebar-content">
+        <img src="assets/mainLogo.svg" alt="mainLogo" srcset="">
+        <h1 class="text-xl text-white font-bold p-4"><span>Logo Name</span></h1>
+      </div>
+      <div class="flex">
+        <img id="toggleSidebar" class="cursor-pointer w-6 h-6" src="assets/iconTag.svg" alt="toggleSidebar" srcset="">
+      </div>
+    </div>
+    <!-- Items -->
+    <div class="flex flex-col w-full h-auto justify-center px-4 sidebar-content">
+      <ul class="space-y-4 w-full">
+        <li  class="main-item list-item group relative">
+          <div class="flex flex-col w-full space-y-2">
+            <div class="flex flex-row w-full space-x-2 items-center">
+              <svg class="w-4 h-6 icon_hover group-hover:text-selectedCyan transition-colors" fill="currentColor" viewBox="0 0 15 14">
+                <path d="M0.0439453 6.33355C0.0439453 5.91283 0.247314 5.50952 0.566406 5.23242L6.14062 0.351562C6.71094 -0.148438 7.58594 -0.148438 8.15625 0.351562L13.7305 5.23242C14.0496 5.50952 14.2529 5.91283 14.2529 6.33355V12.6272C14.2529 13.4277 13.5892 14.0938 12.7734 14.0938H1.52344C0.707672 14.0938 0.0439453 13.4277 0.0439453 12.6272V6.33355Z"/>
+              </svg>
+              <p class="icon_hover group-hover:text-selectedCyan transition-colors">
+                <span>Dashboard</span>
+              </p>
+            </div>
+            <ul class="sub_menu hidden group-hover:block pl-6 space-y-2 transition-all duration-300 ease-in-out">
+              <li onclick="showContent('overview')" class="sub-list-item">Overview</li>
+              <li onclick="showContent('newrso')" class="sub-list-item">New RSO</li>
+              <li onclick="showContent('proposal')" class="sub-list-item">Proposal</li>
+              <li onclick="showContent('renewal')" class="sub-list-item">License Renewal</li>
+            </ul>
+          </div>
+        </li>
+        <li onclick="showContent('users')" class="list-item group flex-row justify-start w-full px-4 py-4 text-white bg-nc800 space-x-2 hover:bg-selectedli rounded">
+          <svg class="w-4 h-6 icon_hover group-hover:text-selectedCyan transition-colors" fill="currentColor" viewBox="0 0 15 14">
+            <path d="M0.943573 12.2389C0.943573 10.0945 2.682 8.35605 4.82647 8.35605H9.17353C11.318 8.35605 13.0564 10.0945 13.0564 12.2389V12.2389C13.0564 12.9538 12.477 13.5332 11.7621 13.5332H2.23787C1.52305 13.5332 0.943573 12.9538 0.943573 12.2389V12.2389Z" />
+            <path d="M7.00231 7.36963C8.9085 7.36963 10.4538 5.82435 10.4538 3.91817C10.4538 2.01198 8.9085 0.466705 7.00231 0.466705C5.89613 0.466705 3.55085 2.01198 3.55585 3.92857C3.55085 5.82435 5.09613 7.36963 7.00231 7.36963Z" />
+          </svg>
+          <p class="icon_hover group-hover:text-selectedCyan"><span>Users</span></p>
+        </li>
+        <li onclick="showContent('rso')" class="list-item group flex-row justify-start w-full px-4 py-4 text-white bg-nc800 space-x-2 hover:bg-selectedli rounded">
+          <svg class="w-5 h-6 icon_hover group-hover:text-selectedCyan transition-colors" fill="currentColor" viewBox="0 0 25 14">
+            <path d="M12 6.75C13.63 6.75 15.07 7.14 16.24 7.65C17.32 8.13 18 15.21 8 10.38V12H6V10.39C6 9.21 6.68 8.13 7.76 7.66C8.93 7.14 10.37 6.75 12 6.75ZM4 7C5.1 7 6 6.1 6 5C6 3.9 5.1 3 4 3C2.9 3 2 3.9 2 5C2 6.1 2.9 7 4 7ZM5.13 8.1C4.76 8.04 4.39 8 4 8C3.01 8 2.07 8.21 1.22 8.58C0.48 8.9 0 9.62 0 10.429V12H4.5V10.39C4.5 9.56 4.73 8.78 5.13 8.1ZM20 7C21.1 7 22 6.1 22 5C22 3.9 21.1 3 20 3C18.9 3 18 3.9 18 5C18 6.1 18.9 7 20 7ZM24 10.429C24 9.62 23.52 8.9 22.78 8.58C21.93 8.21 20.99 8 20 8C19.61 8 19.24 8.04 18.87 8.1C19.27 8.78 19.5 9.56 19.5 10.39V12H24V10.429ZM12 0C13.66 0 15 1.34 15 3C15 4.66 13.66 6 12 6C10.34 6 9 4.66 9 3C9 1.34 10.34 0 12 0Z"/>
+          </svg>
+          <p class="icon_hover group-hover:text-selectedCyan"><span>RSO</span></p>
+        </li>
+        <li onclick="showContent('settings')" class="list-item group flex-row justify-start w-full px-4 py-4 text-white bg-nc800 space-x-2 hover:bg-selectedli rounded">
+          <svg class="w-4 h-6 icon_hover group-hover:text-selectedCyan transition-colors" fill="currentColor" viewBox="0 0 15 14">
+            <path d="M8.73983 0C9.01581 0.000190676 9.23983 0.223975 9.23983 0.5V3.11426L11.5055 1.80664C11.7445 1.66862 12.0509 1.75038 12.189 1.98926L13.9312 5.00781C14.0692 5.24696 13.9867 5.55235 13.7476 5.69043L11.4801 6.99902L13.7476 8.30859C13.9867 8.44662 14.069 8.7521 13.9312 8.99121L12.189 12.0098C12.051 12.2488 11.7455 12.3303 11.5064 12.1924L9.23983 10.8828V13.5C9.23983 13.776 9.01581 13.9998 8.73983 14H5.25546C4.97945 13.9998 4.75546 13.776 4.75546 13.5V10.8828L2.49178 12.1904C2.2527 12.3282 1.94715 12.2469 1.80917 12.0078L0.0669785 8.98926C-0.0705754 8.75037 0.0110833 8.44481 0.249596 8.30664L2.51327 6.99902L0.250572 5.69238C0.0116776 5.55427 -0.0708615 5.24882 0.0669785 5.00977L1.80917 1.99121C1.94717 1.75244 2.25282 1.67103 2.49178 1.80859L4.75546 3.11523V0.5C4.75546 0.223956 4.97945 0.000159176 5.25546 0H8.73983ZM6.9996 5.12695C5.96549 5.12695 5.12655 5.96568 5.12655 7C5.12668 8.03421 5.96557 8.87305 6.9996 8.87305C8.0334 8.87279 8.87153 8.03405 8.87167 7C8.87167 5.96584 8.03348 5.12721 6.9996 5.12695Z" />
+          </svg>
+          <p class="icon_hover group-hover:text-selectedCyan"><span>Settings</span></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content Area -->
+  <div class="flex-1 p-8 bg-nc800">
+    <div id="content-overview" class="content">
+      <!-- Begin Overview Content -->
+          <!-- Header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+    <div class="min-h-screen px-6 py-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+                <p class="text-gray-300 text-base">Check your Activity</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="text-white text-2xl relative" title="Notifications">
+                    <i class="bx bx-bell"></i>
+                </button>
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-white"></div>
+                    <span class="text-white font-medium">John Doe</span>
+                    <i class="bx bx-chevron-down text-white text-lg"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-show text-xl'></i>Active RSO</span>
+                    <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+                </div>
+                <div class="text-3xl font-bold text-white">12</div>
+            </div>
+            <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-user text-xl'></i>User</span>
+                    <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+                </div>
+                <div class="text-3xl font-bold text-white">24</div>
+            </div>
+            <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-file text-xl'></i>Approved Proposal</span>
+                    <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+                </div>
+                <div class="text-3xl font-bold text-white">356</div>
+            </div>
+            <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-alarm text-xl'></i>Reports Due</span>
+                    <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+                </div>
+                <div class="text-3xl font-bold text-white">14</div>
+            </div>
+        </div>
+
+        <!-- Activity Proposal Section -->
+        <div class="bg-[#101C3D] rounded-xl px-6 py-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-white text-xl font-semibold">Activity Prosal</h2>
+                <div class="flex items-center gap-2">
+                    <div class="relative">
+                        <i class='bx bx-calendar text-white absolute left-3 top-1/2 -translate-y-1/2 text-lg'></i>
+                        <select class="appearance-none bg-[#232323] text-white text-sm rounded px-8 py-2 pr-8 focus:outline-none" title="Select date range">
+                            <option>Jan 2024 - Dec 2024</option>
+                        </select>
+                        <i class='bx bx-chevron-down text-white absolute right-3 top-1/2 -translate-y-1/2 text-lg pointer-events-none'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-5">
+
+                <!-- Proposal Card (repeat as needed) -->
+                <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                        <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                        <span class="text-white/80 text-base truncate">Proposal Title</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        <span class="ml-2 px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-full bg-[#232323] border border-[#5B5BFF] text-[#5B5BFF] text-xl" title="Show Details"><i class='bx bx-show'></i></button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-[#5B5BFF] text-white bg-gradient-to-r from-[#5B5BFF] to-[#7F53FF] hover:from-[#7F53FF] hover:to-[#5B5BFF] transition">Approve</button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-white hover:text-[#232323] transition">Reject</button>
+                    </div>
+                </div>
+                <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                        <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                        <span class="text-white/80 text-base truncate">Proposal Title</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        <span class="ml-2 px-3 py-1 rounded bg-[#3F2B2B] text-yellow-400 text-xs font-semibold">Revision</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-full bg-[#232323] border border-[#5B5BFF] text-[#5B5BFF] text-xl" title="Show Details"><i class='bx bx-show'></i></button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-[#5B5BFF] text-white bg-gradient-to-r from-[#5B5BFF] to-[#7F53FF] hover:from-[#7F53FF] hover:to-[#5B5BFF] transition">Approve</button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-white hover:text-[#232323] transition">Reject</button>
+                    </div>
+                </div>
+                <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                        <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                        <span class="text-white/80 text-base truncate">Proposal Title</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        <span class="ml-2 px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-full bg-[#232323] border border-[#5B5BFF] text-[#5B5BFF] text-xl" title="Show Details"><i class='bx bx-show'></i></button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-[#5B5BFF] text-white bg-gradient-to-r from-[#5B5BFF] to-[#7F53FF] hover:from-[#7F53FF] hover:to-[#5B5BFF] transition">Approve</button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-white hover:text-[#232323] transition">Reject</button>
+                    </div>
+                </div>
+                <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                        <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                        <span class="text-white/80 text-base truncate">Proposal Title</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        <span class="ml-2 px-3 py-1 rounded bg-[#3F2B2B] text-yellow-400 text-xs font-semibold">Revision</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-full bg-[#232323] border border-[#5B5BFF] text-[#5B5BFF] text-xl" title="Show Details"><i class='bx bx-show'></i></button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-[#5B5BFF] text-white bg-gradient-to-r from-[#5B5BFF] to-[#7F53FF] hover:from-[#7F53FF] hover:to-[#5B5BFF] transition">Approve</button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-white hover:text-[#232323] transition">Reject</button>
+                    </div>
+                </div>
+                <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                        <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                        <span class="text-white/80 text-base truncate">Proposal Title</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                        <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        <span class="ml-2 px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="w-9 h-9 flex items-center justify-center rounded-full bg-[#232323] border border-[#5B5BFF] text-[#5B5BFF] text-xl" title="Show Details"><i class='bx bx-show'></i></button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-[#5B5BFF] text-white bg-gradient-to-r from-[#5B5BFF] to-[#7F53FF] hover:from-[#7F53FF] hover:to-[#5B5BFF] transition">Approve</button>
+                        <button class="uppercase font-bold text-xs px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-white hover:text-[#232323] transition">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Overview Section -->
+        <div class="mt-12">
+            <h2 class="text-white text-2xl font-semibold mb-6">Reports overview</h2>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left: Chart Card -->
+                <div class="bg-[#101C3D] rounded-xl p-8 flex-1 min-w-[340px] flex flex-col justify-between">
+                    <div class="flex flex-col items-center mb-8">
+                        <!-- Chart (SVG) -->
+                        <svg width="220" height="110" viewBox="0 0 220 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 100 A90 90 0 0 1 200 100" stroke="#3B82F6" stroke-width="12" fill="none" />
+                            <path d="M20 100 A90 90 0 0 1 180 30" stroke="#22D3EE" stroke-width="12" fill="none" />
+                            <path d="M180 30 A90 90 0 0 1 200 100" stroke="#F59E42" stroke-width="12" fill="none" />
+                        </svg>
+                        <div class="-mt-12 text-center">
+                            <div class="text-4xl font-bold text-white">23,648</div>
+                            <div class="text-gray-300 text-base">Approved Proposals</div>
+                        </div>
+                    </div>
+                    <div class="divide-y divide-white/10">
+                        <div class="flex items-center justify-between py-3">
+                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span><span class="text-white/90">SECA RSO</span></div>
+                            <span class="text-white text-lg font-medium">15,624</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-purple-300"></span><span class="text-white/90">SASE RSO</span></div>
+                            <span class="text-white text-lg font-medium">5,546</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span><span class="text-white/90">SBMA RSO</span></div>
+                            <span class="text-white text-lg font-medium">2,478</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-200"></span><span class="text-white/90">SHS RSO</span></div>
+                            <span class="text-white text-lg font-medium">5,546</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Table Card -->
+                <div class="flex-1 min-w-[340px]">
+                    <div class="flex justify-end mb-2">
+                        <div class="relative">
+                            <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+                        </div>
+                    </div>
+                    <div class="bg-[#101C3D] rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2 text-white text-lg font-semibold"><i class='bx bx-group text-2xl'></i>New RSO</div>
+                            <div class="relative">
+                                <select class="appearance-none bg-[#232323] text-white text-sm rounded px-8 py-2 pr-8 focus:outline-none" title="Select month">
+                                    <option>Jan 2024</option>
+                                </select>
+                                <i class='bx bx-chevron-down text-white absolute right-3 top-1/2 -translate-y-1/2 text-lg pointer-events-none'></i>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="text-white/70 text-sm">
+                                        <th class="font-medium pb-2"><span class="bg-[#5B5BFF] rounded px-2 py-1 text-xs mr-2 align-middle"></span>Proponent</th>
+                                        <th class="font-medium pb-2"><i class='bx bx-calendar mr-1'></i>Date</th>
+                                        <th class="font-medium pb-2"><i class='bx bx-check-circle mr-1'></i>Status</th>
+                                        <th class="font-medium pb-2"><i class='bx bx-file mr-1'></i>Document</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/10">
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">COMSOC</span></td>
+                                        <td class="py-3 text-white/80">Dec 30, 10:06 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">PICE</span></td>
+                                        <td class="py-3 text-white/80">Dec 29, 2:59 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#3F2B2B] text-yellow-400 text-xs font-semibold">Revision</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">COMSOC</span></td>
+                                        <td class="py-3 text-white/80">Dec 30, 10:06 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">PICE</span></td>
+                                        <td class="py-3 text-white/80">Dec 29, 2:59 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#3F2B2B] text-yellow-400 text-xs font-semibold">Revision</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">COMSOC</span></td>
+                                        <td class="py-3 text-white/80">Dec 30, 10:06 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white"></div><span class="text-white">PICE</span></td>
+                                        <td class="py-3 text-white/80">Dec 29, 2:59 AM</td>
+                                        <td class="py-3"><span class="px-3 py-1 rounded bg-[#3F2B2B] text-yellow-400 text-xs font-semibold">Revision</span></td>
+                                        <td class="py-3 text-white/80">sample.docs</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Functional Calendar Section (replaces previous static calendar) -->
+        <div class="mt-12">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-white text-2xl font-semibold">Calendar</h2>
+                <div class="relative">
+                    <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+                </div>
+            </div>
+            <div class="bg-[#101C3D] rounded-xl p-8 flex flex-col lg:flex-row gap-8">
+                <!-- Calendar -->
+                <div class="flex-1 min-w-[340px]">
+                    <div class="mb-6 flex items-center justify-between">
+                        <span id="calendar-month-label" class="text-white text-2xl font-bold">June 2025</span>
+                        <div class="flex items-center gap-2">
+                            <button id="calendar-prev" class="text-white/80 text-xl px-2" title="Previous Month"><i class='bx bx-chevron-left'></i></button>
+                            <button id="calendar-next" class="text-white/80 text-xl px-2" title="Next Month"><i class='bx bx-chevron-right'></i></button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-separate border-spacing-0 select-none">
+                            <thead>
+                                <tr class="text-white/80 text-base">
+                                    <th class="font-medium pb-2">Mo</th>
+                                    <th class="font-medium pb-2">Tu</th>
+                                    <th class="font-medium pb-2">We</th>
+                                    <th class="font-medium pb-2">Th</th>
+                                    <th class="font-medium pb-2">Fr</th>
+                                    <th class="font-medium pb-2">Sa</th>
+                                    <th class="font-medium pb-2">Su</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-body" class="text-white text-lg">
+                                <!-- Calendar days will be injected here by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Monthly Activities -->
+                <div class="flex-1 min-w-[340px]">
+                    <h3 class="text-white text-2xl font-semibold mb-6">Monthly Activities</h3>
+                    <div class="flex flex-col gap-5">
+                        <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                            <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                            <span class="text-white/80 text-base truncate">Proposal Title</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        </div>
+                        <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                            <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                            <span class="text-white/80 text-base truncate">Proposal Title</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        </div>
+                        <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                            <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                            <span class="text-white/80 text-base truncate">Proposal Title</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        </div>
+                        <div class="bg-[#353535] rounded-lg px-6 py-4 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white flex-shrink-0"></div>
+                            <span class="text-white font-medium text-base whitespace-nowrap">COMSOC</span>
+                            <span class="text-white/80 text-base truncate">Proposal Title</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">June 2, 2025</span>
+                            <span class="text-white/80 text-base whitespace-nowrap">Proponent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </div>
+
+    <div id="content-newrso" class="content hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New RSO Proposal Drafts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+  <div class="min-h-screen px-6 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+        <p class="text-gray-300 text-base">Check your Activity</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-white text-2xl relative" title="Notifications">
+          <i class="bx bx-bell"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white"></div>
+          <span class="text-white font-medium">John Doe</span>
+          <i class="bx bx-chevron-down text-white text-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-show text-xl'></i>Active RSO</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">10</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-user-plus text-xl'></i>New RSO</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-file text-xl'></i>Approved RSO</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-alarm text-xl'></i>Reports Due</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">14</div>
+      </div>
+    </div>
+
+    <!-- Drafts Section -->
+    <h2 class="text-white text-2xl font-semibold mb-4">Drafts</h2>
+    <div class="bg-[#101C3D] rounded-xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-white text-lg font-semibold">New RSO Propsal</h3>
+        <div class="flex items-center gap-2">
+          <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-white/70 text-sm border-b border-white/10">
+              <th class="font-medium pb-3"><i class='bx bx-user mr-1'></i>Name</th>
+              <th class="font-medium pb-3"><i class='bx bx-phone mr-1'></i>Phone</th>
+              <th class="font-medium pb-3"><i class='bx bx-file mr-1'></i>Default</th>
+              <th class="font-medium pb-3"><i class='bx bx-building mr-1'></i>Organization</th>
+              <th class="font-medium pb-3"><i class='bx bx-check-circle mr-1'></i>Status</th>
+              <th class="font-medium pb-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="w-6 h-6" alt="Google"/>
+                <span class="text-white/80">Google</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar 2" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sophie Moore</div>
+                  <div class="text-white/70 text-xs leading-tight">sophie@webflow.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(240) 480 - 4277</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg" class="w-6 h-6" alt="Webflow"/>
+                <span class="text-white/80">Webflow</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Avatar 3" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Matt Cannon</div>
+                  <div class="text-white/70 text-xs leading-tight">matt@facebook.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(518) 698 - 9689</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" class="w-6 h-6" alt="Facebook"/>
+                <span class="text-white/80">Facebook</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Avatar 4" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Graham Hills</div>
+                  <div class="text-white/70 text-xs leading-tight">graham@twitter.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(540) 627 - 3890</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" class="w-6 h-6" alt="Twitter"/>
+                <span class="text-white/80">Twitter</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Avatar 5" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sandy Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">sandy@youtube.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(440) 440 - 3848</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" class="w-6 h-6" alt="YouTube"/>
+                <span class="text-white/80">YouTube</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Avatar 6" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Andy Smith</div>
+                  <div class="text-white/70 text-xs leading-tight">andy@reddit.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(504) 458 - 3268</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reddit/reddit-original.svg" class="w-6 h-6" alt="Reddit"/>
+                <span class="text-white/80">Reddit</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Avatar 7" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Lilly Woods</div>
+                  <div class="text-white/70 text-xs leading-tight">lilly@spotify.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(516) 692 - 1819</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg" class="w-6 h-6" alt="Spotify"/>
+                <span class="text-white/80">Spotify</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Avatar 8" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Patrick Mayer</div>
+                  <div class="text-white/70 text-xs leading-tight">patrick@pinterest.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(502) 580 - 5070</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pinterest/pinterest-original.svg" class="w-6 h-6" alt="Pinterest"/>
+                <span class="text-white/80">Pinterest</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Avatar 9" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Frances Willen</div>
+                  <div class="text-white/70 text-xs leading-tight">frances@twitch.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(216) 496 - 5946</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitch/twitch-original.svg" class="w-6 h-6" alt="Twitch"/>
+                <span class="text-white/80">Twitch</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 flex items-center gap-3">
+                <i class='bx bx-show text-lg text-white/70'></i>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Avatar 10" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Ernast Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">ernast@linkedin.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(704) 139 - 8815</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6" alt="LinkedIn"/>
+                <span class="text-white/80">LinkedIn</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-end text-white/70 text-sm mt-4">
+        <span>1 - 10 of 256</span>
+      </div>
+    </div>
+
+    <!-- Requirements Section -->
+    <div class="mt-16">
+      <h2 class="text-white text-2xl font-semibold mb-4">Requirements</h2>
+      <div class="flex justify-end mb-2">
+        <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+      </div>
+      <div class="bg-[#101C3D] rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-white text-lg font-semibold">Requirements</h3>
+          <span class="text-white/70 text-sm">1 - 10 of 256</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="text-white/70 text-sm border-b border-white/10">
+                <th class="font-medium pb-3"><i class='bx bx-user mr-1'></i>Proponent</th>
+                <th class="font-medium pb-3"><i class='bx bx-phone mr-1'></i>Phone</th>
+                <th class="font-medium pb-3"><i class='bx bx-file mr-1'></i>Requirement 1</th>
+                <th class="font-medium pb-3"><i class='bx bx-check-circle mr-1'></i>Status</th>
+                <th class="font-medium pb-3 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="even:bg-[#16224a]">
+                <td class="py-3 flex items-center gap-3">
+                  <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <div class="text-white font-medium leading-tight">John Carter</div>
+                    <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                  </div>
+                </td>
+                <td class="py-3 text-white/80">(414) 907 - 1274</td>
+                <td class="py-3 text-white/80">Document 1.pdf</td>
+                <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+                <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+              </tr>
+              <!-- Empty striped rows for spacing -->
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+              <tr class="even:bg-[#16224a]"><td class="py-8" colspan="5"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Overlay Modal -->
+  <div id="documentOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+    <div class="w-[900px] max-w-full bg-[#232323] rounded-lg shadow-2xl flex p-0 overflow-hidden relative">
+      <!-- Close Button -->
+      <button id="closeOverlay" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
+        <span class="sr-only">Close</span>
+        <i class='bx bx-x'></i>
+      </button>
+      <!-- Left Column -->
+      <div class="flex-1 p-8 flex flex-col min-w-[320px] max-w-[400px]">
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">New RSO Prop0sal</div>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div class="text-white font-medium leading-tight">John Carter</div>
+              <a href="mailto:john@google.com" class="text-[#5bbcff] text-xs underline">john@google.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 flex items-center justify-center">
+          <div class="bg-white rounded-lg shadow p-6 w-56 h-64 flex flex-col items-center justify-center relative">
+            <button class="absolute top-3 right-3 text-[#5bbcff] text-xl" title="Download"><i class='bx bx-download'></i></button>
+            <div class="text-black text-center text-base font-medium">Preview Document<br>One</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="flex-1 p-8 bg-[#232323] flex flex-col min-w-[320px] max-w-[500px] border-l border-white/10">
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">Approval</div>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div class="text-white font-medium leading-tight">Sdao Account</div>
+              <a href="mailto:sdaoAccount@google.com" class="text-[#5bbcff] text-xs underline">sdaoAccount@google.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">Remarks</div>
+          <textarea class="w-full h-40 bg-[#010c2a] text-white rounded-lg p-4 resize-none outline-none border-none" placeholder="add remarks Here"></textarea>
+        </div>
+        <div class="flex items-center justify-end gap-4 mt-auto">
+          <button class="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 bg-[#101C3D] text-white focus:outline-none" title="Info"><i class='bx bx-info-circle'></i></button>
+          <button class="px-6 py-2 rounded bg-[#232323] text-white text-sm font-semibold border border-white/20 hover:bg-[#101C3D] transition">REJECT</button>
+          <button class="px-6 py-2 rounded bg-[#5B5BFF] text-white text-sm font-semibold hover:bg-[#4343d3] transition">APPROVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    <div id="content-proposal" class="content hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposals Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+  <div class="min-h-screen px-6 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+        <p class="text-gray-300 text-base">Check your Activity</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-white text-2xl relative" title="Notifications">
+          <i class="bx bx-bell"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white"></div>
+          <span class="text-white font-medium">John Doe</span>
+          <i class="bx bx-chevron-down text-white text-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-file text-xl'></i>New Proposal</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">10</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-check-shield text-xl'></i>Approved Proposal</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-git-pull-request text-xl'></i>RSO Request</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-alarm text-xl'></i>Reports Due</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">14</div>
+      </div>
+    </div>
+
+    <!-- Proposals Section -->
+    <h2 class="text-white text-2xl font-semibold mb-4">Proposals</h2>
+    <div class="bg-[#101C3D] rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-white text-lg font-semibold">New Proposals</h3>
+        <div class="flex items-center gap-2">
+          <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+        </div>
+      </div>
+      <div class="overflow-x-auto scrollbar-hide">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-white/70 text-sm border-b border-white/10">
+              <th class="font-medium pb-3"><i class='bx bx-user mr-1'></i>Proponent</th>
+              <th class="font-medium pb-3"><i class='bx bx-phone mr-1'></i>Default</th>
+              <th class="font-medium pb-3"><i class='bx bx-file mr-1'></i>Requirement 1</th>
+              <th class="font-medium pb-3"><i class='bx bx-check-circle mr-1'></i>Status</th>
+              <th class="font-medium pb-3 text-center"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar 2" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sophie Moore</div>
+                  <div class="text-white/70 text-xs leading-tight">sophie@webflow.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Document 1.pdf</td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
+              <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-end text-white/70 text-sm mt-4">
+        <span>1 - 10 of 256</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Overlay Modal -->
+  <div id="documentOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+    <div class="w-[1100px] max-w-full bg-[#232323] rounded-lg shadow-2xl flex p-0 overflow-hidden relative">
+      <!-- Close Button -->
+      <button id="closeOverlay" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
+        <span class="sr-only">Close</span>
+        <i class='bx bx-x'></i>
+      </button>
+      <!-- Left Column -->
+      <div class="flex-1 p-8 flex flex-col min-w-[400px] max-w-[700px] bg-[#101C3D] overflow-y-auto" style="max-height:90vh;">
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2 font-semibold">Proposal</div>
+          <div class="text-white text-xl font-bold mb-1">Title Proposal: Lorem Ipsum Kineme and all that kind of shist</div>
+          <div class="text-white/80 text-sm mb-4">description - Lorem ipsum dolor sit amet consectetur adipisicing elit, ea odio idemad tempor incidunt ut labore et dolore magna aliqua. Vitae enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-base font-semibold mb-2 flex items-center gap-2"><i class='bx bx-info-circle'></i> About</div>
+          <div class="bg-[#0d1a3a] rounded-lg p-6">
+            <div class="text-white text-lg font-semibold mb-1">Computer Society</div>
+            <div class="text-white/70 text-sm mb-4">comsoc@google.com</div>
+            <div class="flex gap-8">
+              <div>
+                <div class="text-white/60 text-xs mb-1">Proponent</div>
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden mb-1">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="text-white text-xs font-medium">John Doe</div>
+                    <div class="text-white/40 text-[10px]">john@google.com</div>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden mb-1">
+                      <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Avatar 2" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="text-white text-xs font-medium">John Doe</div>
+                    <div class="text-white/40 text-[10px]">john2@facebook.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-base font-semibold mb-2">Details</div>
+          <div class="text-white/80 text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+          <div class="grid grid-cols-2 gap-4 mb-2">
+            <div>
+              <div class="text-white/60 text-xs mb-1 flex items-center gap-1"><i class='bx bx-map'></i> Venue</div>
+              <label for="venue-input" class="sr-only">Venue</label>
+              <input id="venue-input" type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="AVR 4th Floor" readonly placeholder="Venue" title="Venue" />
+            </div>
+            <div>
+              <div class="text-white/60 text-xs mb-1 flex items-center gap-1"><i class='bx bx-calendar'></i> Date</div>
+              <div class="flex gap-2">
+                <label for="narrative-date-1" class="sr-only">Narrative Report Date</label>
+                <input id="narrative-date-1" type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="June 6, 2025" readonly title="Narrative Report Date" placeholder="Narrative Report Date" />
+                <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="June 6, 2025" readonly title="Narrative Report Date" placeholder="Narrative Report Date" />
+              </div>
+            </div>
+            <div>
+              <div class="text-white/60 text-xs mb-1 flex items-center gap-1"><i class='bx bx-time'></i> Time</div>
+              <div class="flex gap-2">
+                <label for="start-time" class="sr-only">Start Time</label>
+                <input id="start-time" type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="8:00 AM" readonly title="Start Time" placeholder="Start Time" />
+                <label for="end-time" class="sr-only">End Time</label>
+                <input id="end-time" type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="5:00 PM" readonly title="End Time" placeholder="End Time" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-base font-semibold mb-2">Budget</div>
+          <div class="text-white/80 text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <div class="text-white/60 text-xs mb-1">Item 1</div>
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm mb-2" value="₱ 700.00" readonly title="Item 1 Amount" placeholder="Amount" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="₱ 700.00" readonly title="Amount" placeholder="Amount" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="₱ 700.00" readonly title="Amount" placeholder="Amount" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="₱ 700.00" readonly title="Amount" placeholder="Amount" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="₱ 700.00" readonly title="Amount" placeholder="Amount" />
+            </div>
+            <div>
+              <div class="text-white/60 text-xs mb-1">Qty</div>
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm mb-2" value="1 Qty" readonly title="Quantity" placeholder="Quantity" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="1 Qty" readonly title="Quantity" placeholder="Quantity" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="1 Qty" readonly title="Quantity" placeholder="Quantity" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="1 Qty" readonly title="Quantity" placeholder="Quantity" />
+              <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="1 Qty" readonly title="Quantity" placeholder="Quantity" />
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-cyan-400 rounded-lg p-6 min-h-[140px]">
+              <i class='bx bx-download text-3xl text-cyan-400 mb-2'></i>
+              <div class="text-cyan-400 text-xs text-center">DRAG & DROP YOUR DOC HERE OR CLICK TO BROWSE</div>
+            </div>
+            <div class="flex-1">
+              <div class="text-white/60 text-xs mb-1">Attachments</div>
+              <div class="bg-transparent border border-white/20 rounded-lg p-4 text-white/80 text-xs">
+                attachment.pdf<br>Attachement2.pdf
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="flex-1 p-8 bg-[#232323] flex flex-col min-w-[320px] max-w-[500px] border-l border-white/10" style="max-height:90vh;overflow-y:auto;">
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">Approval</div>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div class="text-white font-medium leading-tight">Sdao Account</div>
+              <a href="mailto:sdaoAccount@google.com" class="text-[#5bbcff] text-xs underline">sdaoAccount@google.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">Remarks</div>
+          <textarea class="w-full h-32 bg-[#010c2a] text-white rounded-lg p-4 resize-none outline-none border-none" placeholder="add remarks Here"></textarea>
+        </div>
+        <div class="mb-6">
+          <div class="text-white text-sm mb-2">Narrative Report Submission</div>
+          <div class="flex gap-2 mb-2">
+            <input type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="June 6, 2025" readonly title="Narrative Report Date" placeholder="Narrative Report Date" />
+            <label for="narrative-date-2" class="sr-only">Narrative Report Date</label>
+            <input id="narrative-date-2" type="text" class="w-full bg-[#16224a] text-white rounded px-3 py-2 text-sm" value="June 6, 2025" readonly title="Narrative Report Date" placeholder="Narrative Report Date" />
+            <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date</button>
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-4 mt-auto">
+          <button class="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 bg-[#101C3D] text-white focus:outline-none" title="Info"><i class='bx bx-info-circle'></i></button>
+          <button class="px-6 py-2 rounded bg-[#232323] text-white text-sm font-semibold border border-white/20 hover:bg-[#101C3D] transition">REJECT</button>
+          <button class="px-6 py-2 rounded bg-[#5B5BFF] text-white text-sm font-semibold hover:bg-[#4343d3] transition">APPROVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="content-renewal" class="content hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renewal - Users</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+  <div class="min-h-screen px-6 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+        <p class="text-gray-300 text-base">Check your Activity</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-white text-2xl relative" title="Notifications">
+          <i class="bx bx-bell"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white"></div>
+          <span class="text-white font-medium">John Doe</span>
+          <i class="bx bx-chevron-down text-white text-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-check-circle text-xl'></i>Active RSO</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-refresh text-xl'></i>Renewed RSO</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-time-five text-xl'></i>For Renewal</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-alarm text-xl'></i>Reports Due</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">14</div>
+      </div>
+    </div>
+
+    <!-- Renewal Section -->
+    <h2 class="text-white text-2xl font-semibold mb-4">Renewal</h2>
+    <div class="bg-[#101C3D] rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-white text-lg font-semibold">New Users</h3>
+        <div class="flex items-center gap-2">
+          <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+        </div>
+      </div>
+      <div class="overflow-x-auto scrollbar-hide">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-white/70 text-sm border-b border-white/10">
+              <th class="font-medium pb-3"><i class='bx bx-user mr-1'></i>Name</th>
+              <th class="font-medium pb-3"><i class='bx bx-phone mr-1'></i>Phone</th>
+              <th class="font-medium pb-3"><i class='bx bx-file mr-1'></i>Requirements</th>
+              <th class="font-medium pb-3"><i class='bx bx-building mr-1'></i>Organization</th>
+              <th class="font-medium pb-3"><i class='bx bx-check-circle mr-1'></i>Status</th>
+              <th class="font-medium pb-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-500 text-white text-xs font-bold">C</span>
+                <span class="text-white/80">Comsoc</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar 2" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sophie Moore</div>
+                  <div class="text-white/70 text-xs leading-tight">sophie@webflow.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(240) 480 - 4277</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-500 text-white text-xs font-bold">C</span>
+                <span class="text-white/80">Comsoc</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Avatar 3" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Matt Cannon</div>
+                  <div class="text-white/70 text-xs leading-tight">matt@facebook.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(518) 698 - 9689</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-500 text-white text-xs font-bold">C</span>
+                <span class="text-white/80">Comsoc</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Avatar 4" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Graham Hills</div>
+                  <div class="text-white/70 text-xs leading-tight">graham@twitter.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(540) 627 - 3890</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-600 text-white text-xs font-bold">I</span>
+                <span class="text-white/80">Isko</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Avatar 5" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sandy Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">sandy@youtube.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(440) 440 - 3848</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-red-500 text-white text-xs font-bold">R</span>
+                <span class="text-white/80">RICE</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button type="button" class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Avatar 6" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Andy Smith</div>
+                  <div class="text-white/70 text-xs leading-tight">andy@reddit.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(504) 458 - 3268</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-orange-400 text-white text-xs font-bold">J</span>
+                <span class="text-white/80">JPCS</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Avatar 7" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Lilly Woods</div>
+                  <div class="text-white/70 text-xs leading-tight">lilly@spotify.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(516) 692 - 1819</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-green-400 text-white text-xs font-bold">J</span>
+                <span class="text-white/80">JPCS</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Avatar 8" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Patrick Mayer</div>
+                  <div class="text-white/70 text-xs leading-tight">patrick@pinterest.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(502) 580 - 5070</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-purple-500 text-white text-xs font-bold">SHS</span>
+                <span class="text-white/80">SHS</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Avatar 9" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Frances Willen</div>
+                  <div class="text-white/70 text-xs leading-tight">frances@twitch.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(216) 496 - 5946</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-500 text-white text-xs font-bold">SHS</span>
+                <span class="text-white/80">SHS</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i><span class="sr-only">Edit</span></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Avatar 10" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Ernast Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">ernast@linkedin.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(704) 139 - 8815</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center bg-blue-500 text-white text-xs font-bold">COMSOC</span>
+                <span class="text-white/80">COMSOC</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-end text-white/70 text-sm mt-4">
+        <span>1 - 10 of 256</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="content-users" class="content hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+  <div class="min-h-screen px-6 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+        <p class="text-gray-300 text-base">Check your Activity</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-white text-2xl relative" title="Notifications">
+          <i class="bx bx-bell"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white"></div>
+          <span class="text-white font-medium">John Doe</span>
+          <i class="bx bx-chevron-down text-white text-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-user text-xl'></i>Active Users</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+      <div class="bg-[#101C3D] rounded-lg px-6 py-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between mb-2">
+          <span class="flex items-center gap-2 text-white/80 font-medium text-base"><i class='bx bx-user-plus text-xl'></i>New Users</span>
+          <i class='bx bx-dots-horizontal-rounded text-white/50 text-xl'></i>
+        </div>
+        <div class="text-3xl font-bold text-white">12</div>
+      </div>
+    </div>
+
+    <!-- Users Section -->
+    <h2 class="text-white text-2xl font-semibold mb-4">Users</h2>
+    <div class="bg-[#101C3D] rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-white text-lg font-semibold">New Users</h3>
+        <div class="flex items-center gap-2">
+          <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
+        </div>
+      </div>
+      <div class="overflow-x-auto scrollbar-hide">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-white/70 text-sm border-b border-white/10">
+              <th class="font-medium pb-3"><i class='bx bx-user mr-1'></i>Name</th>
+              <th class="font-medium pb-3"><i class='bx bx-phone mr-1'></i>Phone</th>
+              <th class="font-medium pb-3"><i class='bx bx-file mr-1'></i>Requirements</th>
+              <th class="font-medium pb-3"><i class='bx bx-building mr-1'></i>Organization</th>
+              <th class="font-medium pb-3"><i class='bx bx-check-circle mr-1'></i>Status</th>
+              <th class="font-medium pb-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar 1" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">John Carter</div>
+                  <div class="text-white/70 text-xs leading-tight">john@google.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(414) 907 - 1274</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="w-6 h-6" alt="Google"/>
+                <span class="text-white/80">Google</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar 2" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sophie Moore</div>
+                  <div class="text-white/70 text-xs leading-tight">sophie@webflow.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(240) 480 - 4277</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg" class="w-6 h-6" alt="Webflow"/>
+                <span class="text-white/80">Webflow</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Avatar 3" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Matt Cannon</div>
+                  <div class="text-white/70 text-xs leading-tight">matt@facebook.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(318) 698 - 9889</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" class="w-6 h-6" alt="Facebook"/>
+                <span class="text-white/80">Facebook</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Avatar 4" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Graham Hills</div>
+                  <div class="text-white/70 text-xs leading-tight">graham@twitter.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(540) 627 - 3890</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" class="w-6 h-6" alt="Twitter"/>
+                <span class="text-white/80">Twitter</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Avatar 5" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Sandy Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">sandy@youtube.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(440) 410 - 3848</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" class="w-6 h-6" alt="YouTube"/>
+                <span class="text-white/80">YouTube</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Avatar 6" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Andy Smith</div>
+                  <div class="text-white/70 text-xs leading-tight">andy@reddit.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(504) 458 - 3268</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reddit/reddit-original.svg" class="w-6 h-6" alt="Reddit"/>
+                <span class="text-white/80">Reddit</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button type="button" class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button type="button" class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Avatar 7" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Lilly Woods</div>
+                  <div class="text-white/70 text-xs leading-tight">lilly@spotify.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(361) 692 - 1819</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg" class="w-6 h-6" alt="Spotify"/>
+                <span class="text-white/80">Spotify</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Avatar 8" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Patrick Meyer</div>
+                  <div class="text-white/70 text-xs leading-tight">patrick@pinterest.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(760) 582 - 5670</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pinterest/pinterest-original.svg" class="w-6 h-6" alt="Pinterest"/>
+                <span class="text-white/80">Pinterest</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit" aria-label="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Avatar 9" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Frances Willen</div>
+                  <div class="text-white/70 text-xs leading-tight">frances@twitch.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(216) 496 - 5864</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitch/twitch-original.svg" class="w-6 h-6" alt="Twitch"/>
+                <span class="text-white/80">Twitch</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+            <tr class="even:bg-[#16224a]">
+              <td class="py-3 flex items-center gap-3">
+                <button class="text-white/70 hover:text-white" title="Show Details"><i class='bx bx-show'></i></button>
+                <div class="rounded-full bg-cyan-400 w-10 h-10 flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Avatar 10" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <div class="text-white font-medium leading-tight">Ernest Houston</div>
+                  <div class="text-white/70 text-xs leading-tight">ernest@linkedin.com</div>
+                </div>
+              </td>
+              <td class="py-3 text-white/80">(704) 339 - 8813</td>
+              <td class="py-3 text-white/80">Org name.doc</td>
+              <td class="py-3 flex items-center gap-2">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6" alt="LinkedIn"/>
+                <span class="text-white/80">LinkedIn</span>
+              </td>
+              <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
+              <td class="py-3 flex gap-2 justify-end">
+                <button class="text-white/70 hover:text-white" title="Edit"><i class='bx bx-pencil'></i></button>
+                <button class="text-white/70 hover:text-white" title="Delete" aria-label="Delete"><i class='bx bx-trash'></i><span class="sr-only">Delete</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-end text-white/70 text-sm mt-4">
+        <span>1 - 10 of 256</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="content-rso" class="content hidden">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSO Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .focus-ring:focus { outline: 2px solid #a78bfa; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-[#232323] min-h-screen font-sans">
+  <div class="min-h-screen px-6 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-white mb-1">Welcome back, John</h1>
+        <p class="text-gray-300 text-base">Check your Activity</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-white text-2xl relative" title="Notifications">
+          <i class="bx bx-bell"></i>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white"></div>
+          <span class="text-white font-medium">John Doe</span>
+          <i class="bx bx-chevron-down text-white text-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- RSO Section Title -->
+    <h2 class="text-white text-2xl font-semibold mb-6">RSO</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-10">
+      <div class="relative w-full max-w-4xl mx-auto">
+        <input type="text" placeholder="Search for an RSO..." class="w-full bg-transparent border border-gray-400 rounded-lg py-4 pl-6 pr-12 text-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition focus-ring" />
+        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-gray-400 cursor-pointer"><i class='bx bx-search'></i></span>
+      </div>
+    </div>
+
+    <!-- RSO Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <!-- Card 1 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">Computer Society</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">iSITE</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">PICE</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+      <!-- Card 4 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">Computer Society</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+      <!-- Card 5 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">iSITE</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+      <!-- Card 6 -->
+      <div class="bg-transparent border border-blue-400 rounded-lg p-6 flex flex-col min-h-[180px]">
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <span class="text-white text-lg font-semibold">PICE</span>
+        </div>
+        <div class="text-white/80 text-sm mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <a href="#" class="text-cyan-400 text-sm font-medium mt-auto hover:underline">Learn More</a>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <div id="content-settings" class="content hidden">
+      <h1 class="text-2xl text-white font-bold">Settings</h1>
+      <p class="text-white">This is the Settings content.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript ----------------------------------------------------------------------------------------------------------------------------------------------->
+  <script>
+    function showContent(id) {
+      document.querySelectorAll('.content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.getElementById(`content-${id}`).classList.remove('hidden');
+    }
+      document.getElementById('toggleSidebar').addEventListener('click', () => {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('collapsed');
+      const contents = document.querySelectorAll('.sidebar-content');
+      if (sidebar.classList.contains('collapsed')) {
+        sidebar.style.width = '64px';
+        contents.forEach(el => {
+          el.style.opacity = '0';
+          el.style.display = 'none';
+        });
+      } else {
+        sidebar.style.width = '256px';
+        contents.forEach(el => {
+          el.style.display = 'flex'; // Explicitly set to flex for both sections
+          setTimeout(() => el.style.opacity = '1', 50); // Slight delay for smooth fade
+        });
+      }
+    });
+  </script>
+
+  <!--Oveverview JavaScript--------------------------------------------------------------------------------------------------------------------------------------->
+  <script>
+    // Calendar logic
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    let today = new Date();
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+
+    function renderCalendar(month, year) {
+        const calendarBody = document.getElementById('calendar-body');
+        const monthLabel = document.getElementById('calendar-month-label');
+        monthLabel.textContent = `${monthNames[month]} ${year}`;
+
+        // First day of the month (0=Sun, 1=Mon, ...)
+        const firstDay = new Date(year, month, 1);
+        // Adjust so Monday is first (0=Mon, 6=Sun)
+        let startDay = firstDay.getDay() - 1;
+        if (startDay < 0) startDay = 6;
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+        let html = '';
+        let day = 1;
+        let nextMonthDay = 1;
+
+        for (let i = 0; i < 6; i++) { // 6 weeks
+            html += '<tr>';
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < startDay) {
+                    // Previous month (faded text, no background)
+                    html += `<td class="text-white/60 text-center py-2">${daysInPrevMonth - startDay + j + 1}</td>`;
+                } else if (day > daysInMonth) {
+                    // Next month (faded text, no background)
+                    html += `<td class="text-white/60 text-center py-2">${nextMonthDay++}</td>`;
+                } else {
+                    // Current month
+                    let isToday = (day === today.getDate() && month === today.getMonth() && year === today.getFullYear());
+                    let cellClass = isToday ? 'bg-white text-[#232323] text-center py-2 font-semibold' : 'text-center py-2';
+                    html += `<td class="${cellClass}">${day}</td>`;
+                    day++;
+                }
+            }
+            html += '</tr>';
+            if (day > daysInMonth) break;
+        }
+        calendarBody.innerHTML = html;
+    }
+
+    document.getElementById('calendar-prev').onclick = function() {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+    };
+    document.getElementById('calendar-next').onclick = function() {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+    };
+
+    renderCalendar(currentMonth, currentYear);
+    </script>
+
+</body>
+</html>
