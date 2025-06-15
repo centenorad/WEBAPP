@@ -31,3 +31,198 @@
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
+
+/* Features Popup Custom Square Bullet */
+.popup-square {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #111;
+  border: 2.5px solid #fff;
+  border-radius: 3px;
+  margin-right: 16px;
+  margin-top: 2px;
+  box-sizing: border-box;
+}
+.features-popup {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: 2000;
+  background: #232323;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  min-width: 1100px;
+  max-width: 1200px;
+  width: 100vw;
+  padding: 0;
+  border: 1.5px solid #3b82f6;
+  animation: fadeIn 0.2s;
+  display: none;
+}
+.features-popup-content {
+  padding: 38px 38px 38px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.features-popup-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  align-items: stretch;
+}
+.features-popup-col {
+  flex: 1 1 0;
+  min-width: 200px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 12px;
+}
+.features-popup-col h4 {
+  color: #b0b0b0;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.features-popup-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.features-popup-col ul li {
+  color: #fff;
+  font-size: 1.13rem;
+  margin-bottom: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  gap: 0px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.features-popup-col ul li:hover {
+  background: rgba(59,130,246,0.08);
+  border-radius: 8px;
+}
+.features-popup-col ul li .main {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.13rem;
+  margin-bottom: 2px;
+  display: block;
+}
+.features-popup-col ul li .desc {
+  color: #b0b0b0;
+  font-size: 0.97em;
+  font-weight: 400;
+  margin-top: 2px;
+  display: block;
+}
+.features-popup-col ul li > div {
+  display: flex;
+  flex-direction: column;
+}
+.features-popup-card {
+  flex: 1.1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  max-width: 340px;
+  margin-left: 18px;
+  padding: 0;
+}
+.popup-card-content.blue-card {
+  background: #252525;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  border-image: linear-gradient(90deg, #1657E8, #8CBFB5) 1;
+  padding: 32px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: none;
+}
+.card-title {
+  color: #b0b0b0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.card-sub {
+  color: #b0e0ff;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.explore-btn {
+  background: none;
+  color: #fff;
+  border: 2px solid #b0e0ff;
+  border-radius: 8px;
+  padding: 12px 38px;
+  font-size: 1.18rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+.explore-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+@media (max-width: 1200px) {
+  .features-popup {
+    min-width: 0;
+    max-width: 98vw;
+    width: 98vw;
+  }
+  .features-popup-content {
+    padding: 18px 6px;
+  }
+  .features-popup-columns {
+    gap: 12px;
+  }
+  .features-popup-card {
+    min-width: 180px;
+    max-width: 220px;
+    margin-left: 6px;
+  }
+}
+@media (max-width: 900px) {
+  .features-popup-columns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .features-popup-card {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+  .features-popup {
+    min-width: 0;
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

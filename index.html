@@ -10,6 +10,7 @@
     <link rel="icon" href="favico.svg" type="image/svg+xml">
     <script src="scripts/populate_organizations.js" defer></script>
     <script src="scripts/features_tabbed.js" defer></script>
+    <script src="scripts/home.js" defer></script>
 </head>
 
 <body class="bg-[linear-gradient(to_bottom,#0f0f0f,#0f0f0fCC)] bg-center bg-no-repeat bg-cover min-h-screen w-full overflow-x-auto">
@@ -19,7 +20,7 @@
         <div class="w-full"></div>
         <div class="flex lg:gap-16">
             <div class="flex gap-1 p-2 cursor-pointer invisible lg:visible">
-                <a href="#features" class="decoration-none text-white font-light">features</a>
+                <a id="features-trigger" href="#features" class="decoration-none text-white font-light">features</a>
                 <img src="assets/arrow_down.svg" alt="">
             </div>
             <a href="#about" class="decoration-none text-white font-light p-2 invisible lg:visible">about</a>
@@ -41,7 +42,7 @@
             <div class="lg:max-w-[31%] flex flex-col justify-center p-2">
                 <div class="text-3xl font-bold text-white mb-4">Streamline your club management with Ease</div>
                 <div class="text-white mb-4">Easily organize and monitor school activities.</div>
-                <button class="primary-short-button w-full" type="button">Get Started</button>
+                <button class="primary-short-button w-full" type="button" onClick="window.location.href='register.html'">Get Started</button>
             </div>
         </section>
         <section class="flex flex-col items-center gap-8 my-4">
@@ -238,7 +239,7 @@
                          hover:from-blue-800 hover:to-blue-700">
                     GET STARTED
                 </a>
-                <a href="loginshift0.html" class="flex items-center justify-center w-full h-14 px-0 text-lg font-bold text-center no-underline rounded-lg transition-all duration-300 ease-in-out tracking-tight
+                <a href="login.html" class="flex items-center justify-center w-full h-14 px-0 text-lg font-bold text-center no-underline rounded-lg transition-all duration-300 ease-in-out tracking-tight
                          bg-transparent text-white border border-2 border-teal-200
                          hover:border-blue-700">
                     LOG IN
@@ -246,6 +247,44 @@
             </div>
         </div>
     </footer>
+
+    <div class="features-popup hidden" id="features-popup">
+        <div class="features-popup-content">
+            <div class="features-popup-columns">
+                <div class="features-popup-col">
+                    <h4>RSO MANAGEMENT</h4>
+                    <ul>
+                        <li><span class="popup-square"></span><div><span class="main">Create new RSO</span><span class="desc">Create new RSO</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">Approved RSOs</span><span class="desc">View RSOs and their teams</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">Activity Proposals</span><span class="desc">Propose new activities</span></div></li>
+                    </ul>
+                </div>
+                <div class="features-popup-col">
+                    <h4>ADMIN TOOLS</h4>
+                    <ul>
+                        <li><span class="popup-square"></span><div><span class="main">Pending Requests</span><span class="desc">Review and approve submissions</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">Request Feedback</span><span class="desc">Provide feedback on requests</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">Activity Dashboard</span><span class="desc">Track pending activities</span></div></li>
+                    </ul>
+                </div>
+                <div class="features-popup-col">
+                    <h4>USER TOOLS</h4>
+                    <ul>
+                        <li><span class="popup-square"></span><div><span class="main">Narrative Reports</span><span class="desc">Create detailed activity reports</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">License Renewal</span><span class="desc">Renew RSO status</span></div></li>
+                        <li><span class="popup-square"></span><div><span class="main">Admin Dashboard</span><span class="desc">Oversee all activities</span></div></li>
+                    </ul>
+                </div>
+                <div class="features-popup-col features-popup-card">
+                    <div class="popup-card-content blue-card">
+                        <h4 class="card-title">EFFICIENT MANAGEMENT</h4>
+                        <p class="card-sub">STREAMLINE RSO PROCESSES</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
