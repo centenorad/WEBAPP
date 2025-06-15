@@ -1,0 +1,37 @@
+[
+    {
+        "club_name": "COMSOC",
+        "proposal_title": "Proposal Title",
+        "date": "June 2, 2025",
+        "proponent": "Proponent",
+        "status": "Pending"
+    },
+    {
+        "club_name": "COMSOC",
+        "proposal_title": "Proposal Title",
+        "date": "June 2, 2025",
+        "proponent": "Proponent",
+        "status": "Revision"
+    },
+    {
+        "club_name": "COMSOC",
+        "proposal_title": "Proposal Title",
+        "date": "June 2, 2025",
+        "proponent": "Proponent",
+        "status": "Pending"
+    },
+    {
+        "club_name": "COMSOC",
+        "proposal_title": "Proposal Title",
+        "date": "June 2, 2025",
+        "proponent": "Proponent",
+        "status": "Revision"
+    },
+    {
+        "club_name": "COMSOC",
+        "proposal_title": "Proposal Title",
+        "date": "June 2, 2025",
+        "proponent": "Proponent",
+        "status": "Pending"
+    }
+]

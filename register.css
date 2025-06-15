@@ -1,0 +1,346 @@
+/*****************************************************
+ * TABLE OF CONTENTS
+ *
+ * 1. GLOBAL STYLES
+ * 2. NAVIGATION STYLES
+ * 3. SHARED COMPONENTS
+ * 4. REGISTER PAGE STYLES (register.html)
+ * 5. CONFIRM PAGE STYLES (confirm.html)
+ * 6. SUBMIT PAGE STYLES (submit.html)
+ *****************************************************/
+
+
+/*****************************************************
+ * 1. GLOBAL STYLES
+ * These styles apply to all pages
+ *****************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/*****************************************************
+ * 2. NAVIGATION STYLES
+ * Used on all pages for the top navigation bar
+ *****************************************************/
+nav {
+    display: flex;
+    padding: 1rem 2rem;
+    position: relative;
+    background-color: #1a1a1a;
+}
+
+nav div:nth-child(2),
+nav div:last-child {
+    width: 100%;
+    min-width: 4rem;
+}
+
+.logo img {
+    height: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links button {
+    color: #999;
+    font-size: 14px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.nav-links button.active {
+    color: #fff;
+}
+
+
+/*****************************************************
+ * 3. SHARED COMPONENTS
+ * Common elements used across multiple pages
+ *****************************************************/
+/* Highlight color for important text (used on all pages) */
+.highlight {
+    color: #4a89dc;
+    background: linear-gradient(to right, #2c4f91, #4a89dc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Buttons (next and submit buttons) */
+.next-btn,
+.submit-btn {
+    background-color: #2154ce;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    margin: 15px auto;
+    transition: background-color 0.2s ease;
+}
+
+.next-btn:hover,
+.submit-btn:hover {
+    background-color: #1a46b0;
+}
+
+/* Upload area (used in confirm and submit pages) */
+.upload-area {
+    border: 1px dashed #666;
+    border-radius: 3px;
+    padding: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-icon {
+    margin-bottom: 15px;
+    color: #888;
+}
+
+.drag-text {
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+
+/*****************************************************
+ * 4. REGISTER PAGE STYLES (register.html)
+ * Specific styles for the registration page
+ *****************************************************/
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -5%;
+}
+
+.form-container h1 {
+    font-size: 42px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    color: #ffffff;
+    text-shadow: 0 4px 51.6px #00DCFF;
+}
+
+.form-container .highlight {
+    color: #4ECDC4;
+    font-weight: 600;
+    text-shadow: 0 4px 51.6px #00DCFF;
+    display: inline;
+}
+
+.subheading {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+}
+
+form {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+input {
+    width: 100%;
+    background-color: rgba(28, 28, 28, 0.5);
+    border: 1px solid #4ECDC4;
+    border-radius: 4px;
+    padding: 15px;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(78, 205, 196, 0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #56E0D6;
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-link {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin: 20px 0;
+}
+
+.login-link a {
+    color: #4ECDC4;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.next-btn {
+    background-color: #0052CC;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #0747A6;
+    box-shadow: 0 0 15px rgba(0, 82, 204, 0.3);
+}
+
+
+/*****************************************************
+ * 5. CONFIRM PAGE STYLES (confirm.html)
+ * Specific styles for the identity verification page
+ *****************************************************/
+.verify-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.verify-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.verify-subheading {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+/* Verification box styling */
+.id-verification-box {
+    border: 1px solid;
+    border-image: linear-gradient(to right, #2c4f91, #4a89dc) 1;
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #1c1c1c;
+}
+
+.id-verification-box h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.upload-instructions {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+
+/*****************************************************
+ * 6. SUBMIT PAGE STYLES (submit.html)
+ * Specific styles for the team roster submission page
+ *****************************************************/
+.submit-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.submit-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.submit-subheading {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+/* Roster box styling */
+.roster-box {
+    border: 1px solid;
+    border-image: linear-gradient(to right, #2c4f91, #4a89dc) 1;
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #1c1c1c;
+}
+
+.roster-box h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.download-link {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 1.4;
+} 

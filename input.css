@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+@theme {  
+    --color-background: #0f172a;
+    --color-bg1: #131D3D;
+    --color-nc800: #081028;
+    --color-selectedCyan: #04F5F1;
+    --color-selectedli: #0A1330;
+}
+
+.active-tab {
+    @apply text-[#04F5F1];
+}
