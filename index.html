@@ -10,7 +10,6 @@
     <link rel="icon" href="favico.svg" type="image/svg+xml">
     <script src="scripts/populate_organizations.js" defer></script>
     <script src="scripts/features_tabbed.js" defer></script>
-    <script src="scripts/home.js" defer></script>
 </head>
 
 <body class="bg-[linear-gradient(to_bottom,#0f0f0f,#0f0f0fCC)] bg-center bg-no-repeat bg-cover min-h-screen w-full overflow-x-auto">
@@ -282,6 +281,53 @@
                         <button class="explore-btn">Explore</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="rso-modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div class="modal-header">
+                <div class="rso-img-container">
+                    <img class="rso-logo" src="" alt="RSO Logo">
+                </div>            
+                <div class="rso-title-container">
+                    <div class="rso-name">
+                        <div class="rso-icon">
+                            <img src="" alt="logo">
+                        </div>
+                        <h2 class="rso-title"></h2>
+                    </div>
+                    <button type="button" class="primary-short-button" id="join-button">Join</button>
+                </div>
+                <div class="rso-description">
+                    <h3></h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="rso-events">
+                    <div class="rso-header">
+                        <img src="assets/event.svg" alt="event icons">
+                        <h3>Events</h3>
+                    </div>
+                    <div class="carousel-container">
+                        <ul class="item-lists" data-carousel="events"></ul>
+                    </div>
+                </div>
+                <div class="rso-officers">
+                    <div class="rso-header">
+                        <img src="assets/people.svg" alt="officers icons">
+                        <h3>Officers</h3>
+                    </div>
+                    <div class="carousel-container">
+                        <ul class="item-lists" data-carousel="officers"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rso-description">
+                <h3>lorem ipusim</h3>
             </div>
         </div>
     </div>

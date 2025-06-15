@@ -226,3 +226,310 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.modal{
+    display: none;
+    position: fixed;
+    color: white;
+    width: 50%;
+    height: 100%;
+    margin: 1em;
+    z-index: 2000;
+    /* background-color: #00d4ff; */
+    overflow-y: auto; /* Allow scrolling if modal overflows viewport */
+    padding: 2em; /* Add padding to prevent content from touching edges */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal .modal-content{
+    width: 100%;
+    max-width: 600px; /* Adjusted for better readability */
+    max-height: 100vh; /* Limit height to 80% of viewport height */
+    padding: 2em; 
+    margin: 12px auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    overflow: hidden;
+    gap: 1em;
+    overflow-y: auto; /* Enable scrolling for the entire modal content */
+    position: relative; /* For positioning close button */
+}
+
+/* Close Button */
+.close-modal {
+
+    top: 5px;
+    left: 5px;
+    align-self: flex-start;
+    font-size: 28px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background: rgba(0, 0, 0, 0.5); /* Subtle background for visibility */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-modal:hover {
+    color: #00d4ff;
+}
+.modal .modal-content .modal-header{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #0f0f0f; */
+    border-radius: 1em;
+    gap: 1em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal-content .modal-header .rso-img-container{
+    width: 200px;
+    aspect-ratio: 1/1;
+    background-color: #ceebf1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.modal .modal-content .modal-header .rso-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal .modal-content .modal-header .rso-title-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #0f0f0f;
+    position: relative;
+}
+
+.modal .modal-content .modal-header .rso-title-container .rso-name{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    /* background-color: #00d4ff; */
+}
+
+.modal .modal-content .modal-header .rso-title-container .rso-name .rso-icon{
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 8/4;
+    background-color: bisque;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.modal .modal-content .modal-header .rso-title-container .rso-name h2{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #00d4ff;
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+
+}
+
+.modal .modal-content .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1em;
+}
+
+
+
+.modal .modal-content .modal-body .rso-events,
+.modal .modal-content .modal-body .rso-officers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+}
+
+/* Carousel Styles */
+.rso-events .carousel-container,
+.rso-officers .carousel-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 0.5em; /* Ensure space for the last item */
+}
+
+.rso-events .rso-header, .rso-officers .rso-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rso-events .rso-header img, .rso-officers .rso-header img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 0.5em;
+}
+
+.modal .modal-content .modal-body h3{
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+}
+.item-lists{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding: 0.5em 0; /* Add padding for better spacing */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.rso-events .item-lists li {
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    width: 330px; /* Fixed width for each item */
+    height: 330px; /* Fixed height for each item */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    border-radius: 1em; /* Rounded corners */
+    padding: 0.5em; /* Padding for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 14px; /* Match your font-size */
+    min-width: 100px; /* Ensure minimum width */
+    background-size: cover; /* Ensure the background image covers the container */
+    background-position: center; /* Center the background image */
+    position: relative; /* For overlay positioning */
+    color: #6bdbf4;
+    overflow: hidden; /* Hide overflow for better appearance */
+    background: rgb(52, 101, 237); /* Semi-transparent background */
+}
+.rso-officers .item-lists li {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 1em; /* Rounded corners */
+    padding: 0.5em; /* Padding for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 14px; /* Match your font-size */
+    min-width: 100px; /* Ensure minimum width */
+    background-size: cover; /* Ensure the background image covers the container */
+    background-position: center; /* Center the background image */
+    position: relative; /* For overlay positioning */
+    color: #6bdbf4;
+
+}
+
+.item-lists li:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter on hover */
+}
+
+.item-lists li .rso-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.officer_icon{
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    background-image: url('assets/figmaFiles/collaboration.jpg'); /* Fallback background */
+}
+
+.main_event{
+
+}
+.shader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0) 100%);
+
+}
+
+.item-lists li .rso-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-lists li span {
+    color: #b0b0b0;
+    font-size: 0.9em;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 100%; /* Ensure text wraps within the li */
+}
+
+/* Remove scrollbar styles for item-lists */
+.item-lists::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+.modal ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Custom Scrollbar */
+.modal-content::-webkit-scrollbar {
+    width: 0.8px;
+}
+
+.item-lists::-webkit-scrollbar{
+    width: 0.8px
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, #1657E8, #8CFBF5);
+    border-radius: 10px;
+}
+
+.item-lists::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, #1657E8, #8CFBF5);
+    border-radius: 10px;
+}

@@ -15,6 +15,7 @@
         <script src="scripts/dashboard_tabbed.js" defer></script>
         <script src="scripts/calendar.js" defer></script>
         <script src="scripts/sidebar.js" defer></script>
+        <script src="scripts/dashboard.js" defer></script>
     </head>
 
     <body>
@@ -291,7 +292,7 @@
                     <h2 class="text-white text-2xl font-semibold mb-4">Drafts</h2>
                     <div class="bg-[#101C3D] rounded-xl p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-white text-lg font-semibold">New RSO Propsal</h3>
+                            <h3 class="text-white text-lg font-semibold">New RSO Proposal</h3>
                             <div class="flex items-center gap-2">
                                 <button class="bg-[#232323] text-white text-sm rounded px-4 py-2 flex items-center gap-2"><i class='bx bx-calendar'></i> Select date <i class='bx bx-chevron-down'></i></button>
                             </div>
@@ -603,10 +604,10 @@
                 </div>
 
                 <!-- Document Overlay Modal -->
-                <div id="documentOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+                <div id="new-rso-overlay" class="overlay fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
                     <div class="w-[900px] max-w-full bg-[#232323] rounded-lg shadow-2xl flex p-0 overflow-hidden relative">
                         <!-- Close Button -->
-                        <button id="closeOverlay" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
+                        <button class="close-overlay absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
                             <span class="sr-only">Close</span>
                             <i class='bx bx-x'></i>
                         </button>
@@ -744,7 +745,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -759,7 +760,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -774,7 +775,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -789,7 +790,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -804,7 +805,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -819,7 +820,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -834,7 +835,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -849,7 +850,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -864,7 +865,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#2B3F2B] text-green-400 text-xs font-semibold">Pending</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                     <tr class="even:bg-[#16224a]">
                                         <td class="py-3 flex items-center gap-3">
@@ -879,7 +880,7 @@
                                         <td class="py-3 text-white/80">(414) 907 - 1274</td>
                                         <td class="py-3 text-white/80">Document 1.pdf</td>
                                         <td class="py-3"><span class="px-3 py-1 rounded bg-[#b48a3c] text-yellow-200 text-xs font-semibold">Revision</span></td>
-                                        <td class="py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
+                                        <td class="proposal-show py-3 text-center"><i class='bx bx-show text-lg text-white/70 cursor-pointer'></i></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -891,10 +892,10 @@
                 </div>
 
                 <!-- Document Overlay Modal -->
-                <div id="documentOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+                <div id="proposal-overlay" class="overlay fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
                     <div class="w-[1100px] max-w-full bg-[#232323] rounded-lg shadow-2xl flex p-0 overflow-hidden relative">
                         <!-- Close Button -->
-                        <button id="closeOverlay" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
+                        <button class="close-overlay absolute top-4 right-4 text-white/60 hover:text-white text-2xl focus:outline-none z-10" title="Close overlay">
                             <span class="sr-only">Close</span>
                             <i class='bx bx-x'></i>
                         </button>
