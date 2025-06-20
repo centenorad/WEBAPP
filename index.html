@@ -1,253 +1,365 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYXSUS</title>
-    <link rel="stylesheet" href="tailwind.css">
+    <title>CampusSync</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favico.svg" type="image/svg+xml">
-    <script src="scripts/populate_organizations.js" defer></script>
-    <script src="scripts/features_tabbed.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
 </head>
+<body class="bg-[#0f172a] min-h-screen flex items-center justify-center">
 
-<body class="bg-[linear-gradient(to_bottom,#0f0f0f,#0f0f0fCC)] bg-center bg-no-repeat bg-cover min-h-screen w-full overflow-x-auto">
-    <header class="bg-[#252525EE] flex p-4 h-auto items-start border w-screen sticky top-0 z-10">
-        <img class="svg" src="assets/logo.svg" alt="Logo">
-        <h1 class="text-white text-3xl pl-4 font-bold">NYXSUS</h1>
-        <div class="w-full"></div>
-        <div class="flex lg:gap-16">
-            <div class="flex gap-1 p-2 cursor-pointer invisible lg:visible">
-                <a id="features-trigger" href="#features" class="decoration-none text-white font-light">features</a>
-                <img src="assets/arrow_down.svg" alt="">
+    <!-- Header -->
+    <header class="header">
+
+            <div class="right-header">
+
+                <div class="logo">
+                    <img class="svg" src="assets/lg.svg" alt="Logo" >
+                   
+                </div>
+                <h1>CampusSync</h1>
             </div>
-            <a href="#about" class="decoration-none text-white font-light p-2 invisible lg:visible">about</a>
-            <a href="#contact" class="decoration-none text-white font-light p-2 invisible lg:visible">contact</a>
-            <button class="primary-short-button w-[16rem]" type="button" onClick="window.location.href = 'login.html'">LOGIN</button>
+
+            <div class="left-header">
+                <nav>
+                    <ul class="nav-list">
+                        <li><div class="features-container" id="features-trigger">
+                            <a href="#features">features</a>
+                            <img src="assets/arrow_down.svg" alt="">
+                        </div></li>
+                        <li><a href="#about">about</a></li>
+                        <li><a href="#contact">contact</a></li>
+                        <button class="primary-short-button"type="button" onclick="window.location.href='login.html'">LOGIN</button>
+                    </ul>
+                </nav>
+                
+            </div>
+
+            <!-- Add this after .left-header in your header -->
+            <button class="menu-toggle" aria-label="Open navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero hidden">
+        <div class="hero-container">
+          
+            <div class="bento-grid">
+                <div class="col-left">
+                     <div class="box">
+                        <div class="inner-box">
+                            <img src="assets/everyone-is-smiling-listens-group-people-business-conference-modern-classroom-daytime.png" alt="image">
+                        </div>
+                         <div class="inner-box">
+                            <img src="assets/Figma Files/business-reports-close-up.jpg" alt="">
+                        </div>
+                     </div>
+                    <div class="box">
+                         <div class="inner-box">
+                            <img src="assets/Figma Files/collaboration.jpg" alt="">
+                        </div>
+                         <div class="inner-box">
+                            <img src="assets/Figma Files/document_handling.jpg" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+                   
+                <div class="col-right">
+                    <div class="box">
+                        <div class="inner-box">
+                            <video src="assets/istockphoto-1076717416-640_adpp_is.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="inner-box">
+                            <video src="assets/istockphoto-1214253752-640_adpp_is.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="info-box">
+                <h1 class="info_header">Streamline your club management with Ease</h1>
+                <p><span>Easily organize and monitor school activities.</span></p>
+                <button  class="btn_prime" type="button" onclick="window.location.href='register.html'">Get Started</button>
+            </div>
         </div>
-    </header>
-    <main class="flex flex-col gap-16">
-        <section class="flex flex-wrap min-h-[80vh] px-8 py-2 mt-[1rem] gap-4 mx-16 rounded-md border-y-2 border-y-[#CCCCCCBB] bg-[#252525BB]">
-            <div
-                class="lg:max-w-2/3 grid grid-cols-6 grid-rows-2 gap-2 p-4 bg-gray-900 [&>*]:transition-transform [&>*]:rounded-sm [&>*]:object-cover [&>*]:w-full [&>*]:h-full [&>*]:hover:scale-105">
-                <img src="assets/grid_1.png" class="col-span-3">
-                <img src="assets/grid_2.jpg" class="col-span-1 row-span-1">
-                <video src="assets/grid_5.mp4" class="col-span-2"></video>
-                <img src="assets/grid_3.jpg" class="col-span-1">
-                <img src="assets/grid_4.jpg" class="col-span-3">
-                <video src="assets/grid_6.mp4" class="col-span-2"></video>
-            </div>
-            <div class="lg:max-w-[31%] flex flex-col justify-center p-2">
-                <div class="text-3xl font-bold text-white mb-4">Streamline your club management with Ease</div>
-                <div class="text-white mb-4">Easily organize and monitor school activities.</div>
-                <button class="primary-short-button w-full" type="button" onClick="window.location.href='register.html'">Get Started</button>
-            </div>
-        </section>
-        <section class="flex flex-col items-center gap-8 my-4">
-            <div class="text-4xl font-bold text-white text-center">Get to Know Our Different Organizations</div>
-            <div class="flex items-center bg-[#252525] border-t-1 border-b-1 border-[rgba(255,255,255,0.2)] px-4 py-3 rounded-md w-full max-w-lg mx-auto mb-8">
-                <input type="text" placeholder="Search for an RSO..." class="flex-1 border-none bg-transparent text-white text-base outline-none px-2">
-                <span class="text-white text-lg cursor-pointer ml-2">🔍</span>
-            </div>
-            <div id="organizations-grid" class="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
-            </div>
-        </section>
-        <section class="flex flex-col justify-center items-center m-16 p-8 bg-[#0d1b2a] rounded-md [box-shadow:0_0_32px_0_#a78bfa55] border-1 border-[#a78bfa44] items-center">
-            <span class="text-slate-300 text-xl font-semibold mb-2">STEP</span>
-            <div class="text-[#fff] text-3xl font-extrabold text-center mb-10">Create your own Organization with ease
-            </div>
-            <div class="flex flex-wrap lg:flex-nowrap gap-6 w-full [&>*]:w-full">
-                <div class="bg-[#1e293b] rounded-[16px] p-6 flex flex-col items-start [box-shadow:0_2px_12px_0_rgba(0,0,0,0.10)] border-[1px] border-[solid] border-[#33415544] [transition:box-shadow_0.3s] text-[#3b82f6]">
-                    <div><span class="text-[#3b82f6] font-bold text-[1.1rem]">Step</span> <span class="text-[#fff] font-extrabold text-[1.5em]">1</span></div>
-                    <div class="text-[#e2e8f0] text-[1rem] mb-6">Create an initial list of officers for the new RSO</div>
-                    <button class="bg-[#3b82f6] text-[#fff] font-semibold px-8 py-[0.7rem] border-[none] rounded-[8px] text-[1rem] cursor-pointer mt-auto [transition:background_0.2s] hover:bg-[#2563eb]">CREATE NOW</button>
-                </div>
-                <div class="bg-[#1e293b] rounded-sm p-6 flex flex-col items-start [box-shadow:0_2px_12px_0_rgba(0,0,0,0.10)] border-[1px] border-[solid] border-[#33415544] [transition:box-shadow_0.3s]">
-                    <div><span class="text-[#fff] font-extrabold text-[1.5em]">2</span></div>
-                    <div class="text-[#e2e8f0] text-[1rem] mb-6">Submit the draft and wait for the approval.</div>
-                </div>
-                <div class="bg-[#1e293b] rounded-sm p-6 flex flex-col items-start [box-shadow:0_2px_12px_0_rgba(0,0,0,0.10)] border-[1px] border-[solid] border-[#33415544] [transition:box-shadow_0.3s]">
-                    <div class="text-[#fff] font-extrabold text-[1.5em]">3</div>
-                    <div class="text-[#e2e8f0] text-[1rem] mb-6">Once approved, complete the requirements.</div>
-                </div>
-                <div class="bg-[#1e293b] rounded-sm p-6 flex flex-col items-start [box-shadow:0_2px_12px_0_rgba(0,0,0,0.10)] border-[1px] border-[solid] border-[#33415544] [transition:box-shadow_0.3s]">
-                    <div class="text-[#fff] font-extrabold text-[1.5em]">4</div>
-                    <div class="text-[#e2e8f0] text-[1rem] mb-6">Get approved, then you're done</div>
-                </div>
-            </div>
-        </section>
+    </section>
 
-        <section class="flex flex-col items-center text-center p-4 gap-8 mx-16">
-            <div class="text-white">DISCOVER OUR FEATURES</div>
-            <div class="text-5xl text-white">Streamline your club management</div>
-            <div class="text-white">Access tools for document handling, proposal submissions, and license renewals to ensure smooth club operations.</div>
-            <div class="container mx-auto p-4 md:p-8 lg:p-12">
-                <div id="feature-tabs" class="flex flex-wrap justify-center gap-2 mb-8 bg-[#252525] p-2 rounded-lg shadow-md">
-                    <button class="tab-button px-4 py-2 rounded-md text-sm md:text-base font-semibold text-[#808080] hover:bg-[#1657E8]/20 hover:text-[#8CFBF5] transition-colors duration-200" data-target="document-management">
-                        Request Handling
-                    </button>
-                    <button class="tab-button px-4 py-2 rounded-md text-sm md:text-base font-semibold text-[#808080] hover:bg-[#1657E8]/20 hover:text-[#8CFBF5] transition-colors duration-200" data-target="proposal-submissions">
-                        Feedback System
-                    </button>
-                    <button class="tab-button px-4 py-2 rounded-md text-sm md:text-base font-semibold text-[#808080] hover:bg-[#1657E8]/20 hover:text-[#8CFBF5] transition-colors duration-200" data-target="report-generation">
-                        Activity Tracking
-                    </button>
-                    <button class="tab-button px-4 py-2 rounded-md text-sm md:text-base font-semibold text-[#808080] hover:bg-[#1657E8]/20 hover:text-[#8CFBF5] transition-colors duration-200" data-target="license-management">
-                        Admin Tools
-                    </button>
-                </div>
+<section class="org-search hidden">
+    <div class="org-search-container">
+        <h1>Get to Know Our Different Organizations</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for an RSO...">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div class="rso-grid" id="rso-grid">
+            <!-- rso cards here -->
+        </div>
+    </div>
+</section>
 
-                <div id="feature-content-container">
-                    <div class="feature-content bg-[#252525] p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-300 ease-in-out hidden-content active-content" id="document-management">
-                        <img src="assets/document_handling.jpg" alt="Document Handling" class="w-full md:w-1/2 rounded-lg object-cover shadow-lg max-h-80 md:max-h-96">
-                        <div class="md:w-1/2 text-center md:text-left">
-                            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-[#1657E8]">Request Handling</h3>
-                            <p class="text-base md:text-lg text-[#808080] mb-6">Review and process club requests efficiently.</p>
-                            <button class="learn-more bg-[#1657E8] text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#1657E8]/80 focus:outline-none focus:ring-2 focus:ring-[#8CFBF5] focus:ring-opacity-75 transition-colors duration-200" type="button">Learn More</button>
-                        </div>
+    <!-- Modal -->
+<!-- Modal -->
+<div class="modal" id="rso-modal">
+    <div class="modal-content">
+        <span class="close-modal">×</span>
+        <div class="modal-header">
+            <div class="rso-img-container">
+                <img class="rso-logo" src="" alt="RSO Logo">
+            </div>            
+            <div class="rso-title-container">
+                <div class="rso-name">
+                    <div class="rso-icon">
+                        <img src="" alt="logo">
                     </div>
+                    <h2 class="rso-title"></h2>
+                </div>
+                <button type="button" class="primary-short-button" id="join-button">Join</button>
+            </div>
+            <div class="rso-description">
+                <h3></h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="rso-events">
+                
+                <div class="rso-header">
+                    <img src="assets/event.svg" alt="event icons">
+                    <h3>Events</h3>
+                </div>
+                <div class="carousel-container">
+                    <ul class="item-lists" data-carousel="events"></ul>
+                </div>
+            </div>
+            <div class="rso-officers">
+                <div class="rso-header">
+                    <img src="assets/people.svg" alt="officers icons">
+                    <h3>Officers</h3>
+                </div>
+                <div class="carousel-container">
+                    <ul class="item-lists" data-carousel="officers"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    <div class="feature-content bg-[#252525] p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-300 ease-in-out hidden-content" id="proposal-submissions">
-                        <img src="assets/optimization.jpg" alt="Proposal Submissions" class="w-full md:w-1/2 rounded-lg object-cover shadow-lg max-h-80 md:max-h-96">
-                        <div class="md:w-1/2 text-center md:text-left">
-                            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-[#1657E8]">Feedback System</h3>
-                            <p class="text-base md:text-lg text-[#808080] mb-6">Admins can provide clear feedback on club requests.</p>
-                            <button class="learn-more bg-[#1657E8] text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#1657E8]/80 focus:outline-none focus:ring-2 focus:ring-[#8CFBF5] focus:ring-opacity-75 transition-colors duration-200" type="button">Learn More</button>
-                        </div>
+    <!-- Steps section: exact match to provided image -->
+    <section class="steps-section">
+      <div class="steps-card steps-glow">
+        <span class="step-label">STEP</span>
+        <h2 class="steps-title">Create your own Organization with ease</h2>
+        <div class="steps-container">
+          <!-- Step 1 -->
+          <div class="step-box active">
+            <h3><span class="step-highlight">Step</span> <span class="step-number">1</span></h3>
+            <p>Create an initial list of officers for the new RSO</p>
+            <button class="create-button" type="button" onclick="window.location.href='register.html'">CREATE NOW</button>
+          </div>
+          <!-- Step 2 -->
+          <div class="step-box">
+            <h3><span class="step-number">2</span></h3>
+            <p>Submit the draft and wait for the approval.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="step-box">
+            <h3><span class="step-number">3</span></h3>
+            <p>Once approved, complete the requirements.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="step-box">
+            <h3><span class="step-number">4</span></h3>
+            <p>Get approved, then you're done</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features section: highlights platform features and tools -->
+    <section class="discover-features">
+        <div class="container">
+            <header>
+                <!-- Section title and subtitle -->
+                <h2 class="section-title">DISCOVER OUR FEATURES</h2>
+                <h1 class="main-title">Streamline your club management</h1>
+                <p class="subtitle">Access tools for document handling, proposal submissions, and license renewals to ensure smooth club operations.</p>
+            </header>
+            <!-- Main feature showcase with tabbed content -->
+            <div class="main-feature">
+                <!-- Each feature-content is a tabbed panel -->
+                <div class="feature-content active" id="document-management">
+                    <div class="feature-image">
+                        <img src="assets/Figma Files/document_handling.jpg" alt="Document Handling">
                     </div>
-
-                    <div class="feature-content bg-[#252525] p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-300 ease-in-out hidden-content" id="report-generation">
-                        <img src="assets/collaboration.jpg" alt="Report Generation" class="w-full md:w-1/2 rounded-lg object-cover shadow-lg max-h-80 md:max-h-96">
-                        <div class="md:w-1/2 text-center md:text-left">
-                            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-[#1657E8]">Activity Tracking</h3>
-                            <p class="text-base md:text-lg text-[#808080] mb-6">Monitor pending activities with a user-friendly dashboard.</p>
-                            <button class="learn-more bg-[#1657E8] text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#1657E8]/80 focus:outline-none focus:ring-2 focus:ring-[#8CFBF5] focus:ring-opacity-75 transition-colors duration-200" type="button">Learn More</button>
-                        </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Request</span>
+                            <span>Handling</span>
+                        </h3>
+                        <p>Review and process club requests efficiently.</p>
+                        <button class="learn-more" type="button" onclick="window.location.href='confirm.html'">Learn More</button>
                     </div>
-
-                    <div class="feature-content bg-[#252525] p-6 rounded-lg shadow-xl flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-300 ease-in-out hidden-content" id="license-management">
-                        <img src="assets/admin.jpg" alt="License Management" class="w-full md:w-1/2 rounded-lg object-cover shadow-lg max-h-80 md:max-h-96">
-                        <div class="md:w-1/2 text-center md:text-left">
-                            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-[#1657E8]">Admin Tools</h3>
-                            <p class="text-base md:text-lg text-[#808080] mb-6">Enhance administrative efficiency with our comprehensive tools.</p>
-                            <button class="learn-more bg-[#1657E8] text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-[#1657E8]/80 focus:outline-none focus:ring-2 focus:ring-[#8CFBF5] focus:ring-opacity-75 transition-colors duration-200" type="button">Learn More</button>
-                        </div>
+                </div>
+                <div class="feature-content" id="proposal-submissions">
+                    <div class="feature-image">
+                        <img src="assets/Figma Files/optimization.jpg" alt="Proposal Submissions">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Feedback</span>
+                            <span>System</span>
+                        </h3>
+                        <p>Admins can provide clear feedback on club requests.</p>
+                        <button class="learn-more" type="button" onclick="window.location.href='confirm.html'">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-content" id="report-generation">
+                    <div class="feature-image">
+                        <img src="assets/Figma Files/collaboration.jpg" alt="Report Generation">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Activity</span>
+                            <span>Tracking</span>
+                        </h3>
+                        <p>Monitor pending activities with a user-friendly dashboard.</p>
+                        <button class="learn-more" type="button" onclick="window.location.href='confirm.html'">Learn More</button>
+                    </div>
+                </div>
+                <div class="feature-content" id="license-management">
+                    <div class="feature-image">
+                        <img src="assets/Figma Files/admin.jpg" alt="License Management">
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <span>Admin</span>
+                            <span>Tools</span>
+                        </h3>
+                        <p>Enhance administrative efficiency with our comprehensive tools.</p>
+                        <button class="learn-more" type="button" onclick="window.location.href='confirm.html'">Learn More</button>
                     </div>
                 </div>
             </div>
             <!-- Feature selection grid for quick navigation -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <div class="feature text-left p-4 md:p-5 relative cursor-pointer transition-all duration-200 ease-in-out group" data-target="document-management">
-                    <div class="absolute top-0 left-5 w-[calc(100%-40px)] h-px bg-gray-500 group-hover:bg-white transition-colors duration-200 ease-in-out"></div>
-                    <h3 class="text-xl mt-2.5 mb-4 text-white drop-shadow-md transition-colors duration-200 ease-in-out">Document Management</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed drop-shadow transition-colors duration-200 ease-in-out">Easily upload documents for club setup and renewals.</p>
+            <div class="features-grid">
+                <div class="feature" data-target="document-management">
+                    <h3>Document Management</h3>
+                    <p>Easily upload documents for club setup and renewals.</p>
                 </div>
-                <div class="feature text-left p-4 md:p-5 relative cursor-pointer transition-all duration-200 ease-in-out group" data-target="proposal-submissions">
-                    <div class="absolute top-0 left-5 w-[calc(100%-40px)] h-px bg-gray-500 group-hover:bg-white transition-colors duration-200 ease-in-out"></div>
-                    <h3 class="text-xl mt-2.5 mb-4 text-white drop-shadow-md transition-colors duration-200 ease-in-out">Proposal Submissions</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed drop-shadow transition-colors duration-200 ease-in-out">Submit and monitor new activity proposals effortlessly.</p>
+                <div class="feature" data-target="proposal-submissions">
+                    <h3>Proposal Submissions</h3>
+                    <p>Submit and monitor new activity proposals effortlessly.</p>
                 </div>
-                <div class="feature text-left p-4 md:p-5 relative cursor-pointer transition-all duration-200 ease-in-out group" data-target="report-generation">
-                    <div class="absolute top-0 left-5 w-[calc(100%-40px)] h-px bg-gray-500 group-hover:bg-white transition-colors duration-200 ease-in-out"></div>
-                    <h3 class="text-xl mt-2.5 mb-4 text-white drop-shadow-md transition-colors duration-200 ease-in-out">Report Generation</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed drop-shadow transition-colors duration-200 ease-in-out">Compile detailed reports for completed activities.</p>
+                <div class="feature" data-target="report-generation">
+                    <h3>Report Generation</h3>
+                    <p>Compile detailed reports for completed activities.</p>
                 </div>
-                <div class="feature text-left p-4 md:p-5 relative cursor-pointer transition-all duration-200 ease-in-out group" data-target="license-management">
-                    <div class="absolute top-0 left-5 w-[calc(100%-40px)] h-px bg-gray-500 group-hover:bg-white transition-colors duration-200 ease-in-out"></div>
-                    <h3 class="text-xl mt-2.5 mb-4 text-white drop-shadow-md transition-colors duration-200 ease-in-out">License Management</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed drop-shadow transition-colors duration-200 ease-in-out">Renew club licenses for the upcoming school year with ease.</p>
+                <div class="feature" data-target="license-management">
+                    <h3>License Management</h3>
+                    <p>Renew club licenses for the upcoming school year with ease.</p>
                 </div>
             </div>
             <!-- Bottom features: additional platform highlights -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-left p-5">
-                    <img src="assets/admin.jpg" alt="Platform Capabilities" class="w-full h-52 object-cover rounded-lg mb-5">
-                    <h3 class="text-white text-lg mb-2.5">Discover our platform's capabilities</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed">Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
+            <div class="bottom-features">
+                <div class="bottom-feature">
+                    <img src="assets/Figma Files/admin.jpg" alt="Platform Capabilities">
+                    <h3>Discover our platform's capabilities</h3>
+                    <p>Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
                 </div>
-                <div class="text-left p-5">
-                    <img src="assets/document_handling.jpg" alt="Optimize RSO" class="w-full h-52 object-cover rounded-lg mb-5">
-                    <h3 class="text-white text-lg mb-2.5">Optimize your RSO operations</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed">Our system ensures seamless and effective management of RSOs.</p>
+                <div class="bottom-feature">
+                    <img src="assets/Figma Files/document_handling.jpg" alt="Optimize RSO">
+                    <h3>Optimize your RSO operations</h3>
+                    <p>Our system ensures seamless and effective management of RSOs.</p>
                 </div>
-                <div class="text-left p-5">
-                    <img src="assets/collaboration.jpg" alt="Track Activities" class="w-full h-52 object-cover rounded-lg mb-5">
-                    <h3 class="text-white text-lg mb-2.5">Track activities comprehensively</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed">Utilize our tools for detailed insights into RSO activities.</p>
+                <div class="bottom-feature">
+                    <img src="assets/Figma Files/collaboration.jpg" alt="Track Activities">
+                    <h3>Track activities comprehensively</h3>
+                    <p>Utilize our tools for detailed insights into RSO activities.</p>
                 </div>
-                <div class="text-left p-5">
-                    <img src="assets/optimization.jpg" alt="Simplify Admin" class="w-full h-52 object-cover rounded-lg mb-5">
-                    <h3 class="text-white text-lg mb-2.5">Simplify admin workflows</h3>
-                    <p class="text-gray-200 text-sm leading-relaxed">Efficiently manage requests and feedback with our streamlined system.</p>
+                <div class="bottom-feature">
+                    <img src="assets/Figma Files/optimization.jpg" alt="Simplify Admin">
+                    <h3>Simplify admin workflows</h3>
+                    <p>Efficiently manage requests and feedback with our streamlined system.</p>
                 </div>
             </div>
-            <section class="py-12 md:py-16 relative overflow-visible">
-                <div class="text-center text-white max-w-3xl mx-auto mb-8 relative px-4">
-                    <span class="text-base uppercase tracking-widest mb-2 opacity-80 text-blue-300 block">DISCOVER OUR FEATURES</span>
-                    <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-2">Submit proposals in easy ways</h2>
-                    <p class="text-base leading-relaxed opacity-90 max-w-xl mx-auto">Learn how we simplify the management of RSOs, from document handling to activity tracking.</p>
-                </div>
-                <div class="rounded-3xl overflow-hidden w-full max-w-screen-lg h-[477px] mx-auto relative flex items-center justify-center bg-transparent p-0 shadow-none">
-                    <video class="w-full h-full object-cover rounded-3xl block bg-transparent" controls autoplay muted loop>
-                        <source src="assets/proposal.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </section>
+        </div>
+    </section>
+    
+    <!-- JavaScript for switching feature tabs in the features section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all feature grid items and feature content panels
+            const features = document.querySelectorAll('.feature');
+            const featureContents = document.querySelectorAll('.feature-content');
+            // Add click event to each feature grid item
+            features.forEach(feature => {
+                feature.addEventListener('click', () => {
+                    const target = feature.getAttribute('data-target');
+                    // Hide all feature content panels
+                    featureContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    // Show the selected feature content panel
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+        });
+    </script>
 
-            <section class="py-12 md:py-8 relative overflow-visible text-left">
-                <div class="max-w-3xl mx-auto relative px-4">
-                    <div class="text-center text-white mb-12">
-                        <span class="text-base uppercase tracking-widest mb-2 text-blue-300 opacity-80 block">Frequently Asked Questions</span>
-                        <h2 class="text-2xl md:text-3xl font-bold mb-2">How to Use Our Platform?</h2>
-                        <p class="text-base opacity-90 max-w-xl mx-auto">Discover efficient ways to manage student organizations and enhance administrative processes.</p>
-                    </div>
-                    <div class="flex flex-col gap-9 mb-12">
-                        <div class="pb-5 border-b border-blue-300/[0.27]">
-                            <h3 class="text-xl text-white mb-2 font-semibold">How to start a new RSO?</h3>
-                            <p class="text-base text-blue-300 leading-relaxed">Begin by uploading essential documents like bylaws and member lists for SDAO approval.</p>
-                        </div>
-                        <div class="pb-5 border-b border-blue-300/[0.27]">
-                            <h3 class="text-xl text-white mb-2 font-semibold">How to propose a new activity?</h3>
-                            <p class="text-base text-blue-300 leading-relaxed">Submit a renewal request for the next school year, ensuring all requirements are met.</p>
-                        </div>
-                        <div class="pb-5 border-b border-blue-300/[0.27]">
-                            <h3 class="text-xl text-white mb-2 font-semibold">What are the admin duties?</h3>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <a href="#contact" class="text-blue-300 hover:text-white text-lg inline-flex items-center gap-2 font-semibold transition-colors duration-200">
-                            Contact Us <span class="transition-transform duration-300 ease-in-out group-hover:translate-x-1">→</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-        </section>
-
-    </main>
-    <footer class="bg-gray-800 py-16 w-screen">
-        <div class="w-screen mx-auto flex flex-col md:flex-row justify-center items-center gap-24 text-left px-16">
-            <div class="text-white max-w-xl text-left flex flex-col justify-center items-start">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-2.5 leading-tight tracking-tight">Streamline your club management</h2>
-                <p class="text-gray-200 text-lg md:text-xl font-normal leading-relaxed">Manage student organizations effortlessly with our comprehensive tools.</p>
+    <!-- FAQ section: frequently asked questions and contact link -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <span class="section-label">Frequently Asked Questions</span>
+                <h2>How to Use Our Platform?</h2>
+                <p>Discover efficient ways to manage student organizations and enhance administrative processes.</p>
             </div>
-            <div class="flex flex-col gap-4 min-w-0 w-full md:w-105 mx-auto items-center justify-center">
-                <a href="register.html" class="flex items-center justify-center w-full h-14 px-0 text-lg font-bold text-center no-underline rounded-lg transition-all duration-300 ease-in-out tracking-tight
-                         bg-gradient-to-r from-blue-700 to-blue-500 text-white border-none
-                         hover:from-blue-800 hover:to-blue-700">
-                    GET STARTED
-                </a>
-                <a href="login.html" class="flex items-center justify-center w-full h-14 px-0 text-lg font-bold text-center no-underline rounded-lg transition-all duration-300 ease-in-out tracking-tight
-                         bg-transparent text-white border border-2 border-teal-200
-                         hover:border-blue-700">
-                    LOG IN
-                </a>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How to start a new RSO?</h3>
+                    <p>Begin by uploading essential documents like bylaws and member lists for SDAO approval.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How to propose a new activity?</h3>
+                    <p>Submit a renewal request for the next school year, ensuring all requirements are met.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What are the admin duties?</h3>
+                </div>
+            </div>
+            <div class="contact-link">
+                <a href="#contact">Contact Us <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section: call-to-action and login -->
+    <footer class="main-footer">
+        <div class="footer-content centered-footer">
+            <div class="footer-text">
+                <h2>Streamline your club management</h2>
+                <p>Manage student organizations effortlessly with our comprehensive tools.</p>
+            </div>
+            <div class="footer-buttons">
+                <a href="register.html" class="get-started-btn">GET STARTED</a>
+                <a href="login.html" class="login-btn">LOG IN</a>
             </div>
         </div>
     </footer>
 
-    <div class="features-popup hidden" id="features-popup">
+    <!-- Features popup -->
+    <div class="features-popup" id="features-popup" style="display:none;">
         <div class="features-popup-content">
             <div class="features-popup-columns">
                 <div class="features-popup-col">
@@ -285,52 +397,5 @@
         </div>
     </div>
 
-    <div class="modal" id="rso-modal">
-        <div class="modal-content">
-            <span class="close-modal">×</span>
-            <div class="modal-header">
-                <div class="rso-img-container">
-                    <img class="rso-logo" src="" alt="RSO Logo">
-                </div>            
-                <div class="rso-title-container">
-                    <div class="rso-name">
-                        <div class="rso-icon">
-                            <img src="" alt="logo">
-                        </div>
-                        <h2 class="rso-title"></h2>
-                    </div>
-                    <button type="button" class="primary-short-button" id="join-button">Join</button>
-                </div>
-                <div class="rso-description">
-                    <h3></h3>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="rso-events">
-                    <div class="rso-header">
-                        <img src="assets/event.svg" alt="event icons">
-                        <h3>Events</h3>
-                    </div>
-                    <div class="carousel-container">
-                        <ul class="item-lists" data-carousel="events"></ul>
-                    </div>
-                </div>
-                <div class="rso-officers">
-                    <div class="rso-header">
-                        <img src="assets/people.svg" alt="officers icons">
-                        <h3>Officers</h3>
-                    </div>
-                    <div class="carousel-container">
-                        <ul class="item-lists" data-carousel="officers"></ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="rso-description">
-                <h3>lorem ipusim</h3>
-            </div>
-        </div>
-    </div>
 </body>
-
 </html>
