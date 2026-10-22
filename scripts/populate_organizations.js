@@ -1,4 +1,8 @@
-function createRsoCard(rso, id) {
+// Constants
+const HOST              =   "http://localhost/rso-management-back/";
+const FILE_DIRECTORY    =   "D:/xampp/htdocs/rso-management-back";
+
+function createRsoCard(rso) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'rso-card ' +
         'bg-[rgba(22,33,62,0.55)] p-6 rounded-[10px] text-left ' +
@@ -11,7 +15,11 @@ function createRsoCard(rso, id) {
     const iconDiv = document.createElement('div');
     iconDiv.className = 'rso-icon w-10 h-10 bg-white rounded-full flex items-center justify-center ' +
         'text-xl font-bold text-gray-800 mb-4';
-    iconDiv.textContent = rso.name.charAt(0).toUpperCase();
+    iconDiv.innerHTML = li.innerHTML = `
+                    <div class="shader hover event-cards">
+                        <img class ="main_event"src="${FILE_DIRECTORY}${rso.image}" alt="${rso.title}">
+                    </div>
+                `;
 
     const nameHeading = document.createElement('h3');
     nameHeading.className = 'text-xl font-semibold text-[#00d4ff] mb-2';
@@ -22,13 +30,13 @@ function createRsoCard(rso, id) {
     descriptionPara.textContent = rso.description;
 
     const learnMoreLink = document.createElement('a');
-    learnMoreLink.href = rso.link;
+    learnMoreLink.href = '#';
     learnMoreLink.className = 'learn-more text-[#00d4ff] no-underline font-bold self-start ' +
         'hover:underline transition duration-300 ease-in-out'; // Transition for underline
 
     learnMoreLink.textContent = 'Learn More';
 
-    cardDiv.dataset.rsoId = id;
+    cardDiv.dataset.rsoId = rso.rsoid;
     cardDiv.appendChild(iconDiv);
     cardDiv.appendChild(nameHeading);
     cardDiv.appendChild(descriptionPara);
@@ -41,7 +49,9 @@ const rsoGridContainer = document.getElementById('organizations-grid');
 
 async function fetchAndDisplayRSOs() {
     try {
-        const response = await fetch('/mock_data/organizations.json');
+        const response = await fetch(`${HOST}rso`, {
+            method: 'GET'
+        });
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,8 +60,8 @@ async function fetchAndDisplayRSOs() {
         const rsoData = await response.json();
 
         if (rsoGridContainer && rsoData.length > 0) {
-            rsoData.forEach((rso, id) => {
-                const card = createRsoCard(rso, id + 1);
+            rsoData.forEach((rso) => {
+                const card = createRsoCard(rso);
                 rsoGridContainer.appendChild(card);
             });
         } else if (!rsoGridContainer) {

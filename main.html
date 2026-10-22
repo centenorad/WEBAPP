@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusSync</title>
+    <link rel="stylesheet" href="main-style.css">
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Load Tailwind CDN -->
+    <script src="tailwind-config.js"></script> <!-- Load custom config -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script>
+</head>
+<body class="flex flex-row bg-bg1 w-screen m-0 p-0 font-montserrat">
+    <!-- Side bar -->
+    <div id="sidebar" class="flex flex-col justify-between px-1 w-64 h-screen bg-bg1 shadow-xl  shadow-cyan-500/30 items-center rounded-r-md pt-4 space-y-4 transition-all duration-50000 ease-in-out delay-50 sticky top-0 left-0">
+        <div class="flex flex-col w-full h-auto space-y-8">
+             <!-- Top -->
+            <div class="flex flex-row h-[56px] w-full justify-between px-4 items-center">
+                <div class="flex justify-start sidebar-content">
+                    <img src="assets/mainLogo.svg" alt="mainLogo" srcset="">
+                    <h1 class="text-xl text-white font-bold p-4"><span>CampusSync</span></h1>
+                </div>
+                <div class="flex">
+                    <img id="toggleSidebar" class="cursor-pointer w-6 h-6" src="assets/iconTag.svg" alt="toggleSidebar" srcset="">
+                </div>
+            </div>
+
+            <!-- Items -->
+            <div class="sidebar-content flex flex-col space-y-4 w-full px-4"> <!-- Added sidebar-content here -->
+                <!-- Dashboard sub items -->
+                <div class="group bg-bg1 relative rounded-lg hover:border-b-[0.5px] border-white/50 hover:bg-bg1">
+                    <div class="flex items-center space-x-2 pl-4 font-medium text-white p-2 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 rounded-lg border-t-[0.5px] border-white/30 group hover:border-t-0 hover:border-b">
+                        <svg class="w-4 h-6 text-white group-hover:text-eggplant transition-colors" fill="currentColor" viewBox="0 0 15 14">
+                            <path d="M0.0439453 6.33355C0.0439453 5.91283 0.247314 5.50952 0.566406 5.23242L6.14062 0.351562C6.71094 -0.148438 7.58594 -0.148438 8.15625 0.351562L13.7305 5.23242C14.0496 5.50952 14.2529 5.91283 14.2529 6.33355V12.6272C14.2529 13.4277 13.5892 14.0938 12.7734 14.0938H1.52344C0.707672 14.0938 0.0439453 13.4277 0.0439453 12.6272V6.33355Z"/>
+                        </svg>
+                        <p class="group-hover:text-eggplant">
+                            <span>Dashboard</span>
+                        </p>
+                    </div>
+                    <div class="hidden group-hover:block space-y-1 p-1 font-regular text-white text-[0.9rem]">
+                        <a onclick="showContent('overview')" href="#" class="flex items-center p-2 pl-4 rounded-md w-full transition delay-90 duration-300 ease-in hover:-translate-y-1 hover:scale-105 hover:text-white hover:border-eggplant hover:border-l-[2px] hover:bg-neutralColor700">
+                            <span class="mr-2 text-icon-hover hover:text-selected-cyan"></span> Overview
+                        </a>
+                        <a onclick="showContent('proposal')" href="#" class="flex items-center p-2 pl-4 rounded-md w-full transition delay-90 duration-300 ease-in hover:-translate-y-1 hover:scale-105 hover:text-white hover:border-eggplant hover:border-l-[2px] hover:bg-neutralColor700">
+                            <span class="mr-2 text-icon-hover hover:text-selected-cyan"></span> Proposal
+                        </a>
+                        <a onclick="showContent('my_rso')" href="#" class="flex items-center p-2 pl-4 hover:bg-selected-li rounded-md w-full transition delay-90 duration-300 ease-in hover:-translate-y-1 hover:scale-105 hover:text-white hover:border-eggplant hover:border-l-[2px] hover:bg-neutralColor700">
+                            <span class="mr-2 text-icon-hover hover:text-selected-cyan"></span> My RSO
+                        </a>
+                        <a onclick="showContent('license')" href="#" class="flex items-center p-2 pl-4 hover:bg-selected-li rounded-md w-full transition delay-90 duration-300 ease-in hover:-translate-y-1 hover:scale-105 hover:text-white hover:border-eggplant hover:border-l-[2px] hover:bg-neutralColor700">
+                            <span class="mr-2 text-icon-hover hover:text-selected-cyan"></span> License Renewal
+                        </a>
+                    </div>
+                </div>
+                <div onclick="showContent('users')" class="bg-bg1 flex items-center space-x-2 font-medium pl-4 text-white p-2 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 rounded-lg border-t-[0.5px] border-white/30 rounded-lg border-white/50 hover:bg-bg1 group hover:border-t-0 hover:border-b">
+                    <svg class="w-4 h-6 group-hover:text-eggplant transition-colors" fill="currentColor" viewBox="0 0 15 14">
+                        <path d="M0.943573 12.2389C0.943573 10.0945 2.682 8.35605 4.82647 8.35605H9.17353C11.318 8.35605 13.0564 10.0945 13.0564 12.2389V12.2389C13.0564 12.9538 12.477 13.5332 11.7621 13.5332H2.23787C1.52305 13.5332 0.943573 12.9538 0.943573 12.2389V12.2389Z" />
+                        <path d="M7.00231 7.36963C8.9085 7.36963 10.4538 5.82435 10.4538 3.91817C10.4538 2.01198 8.9085 0.466705 7.00231 0.466705C5.89613 0.466705 3.55085 2.01198 3.55585 3.92857C3.55085 5.82435 5.09613 7.36963 7.00231 7.36963Z" />
+                    </svg>
+                    <p class="group-hover:text-eggplant"><span>Users</span></p>
+                </div>
+                <div onclick="showContent('rso')" class="bg-bg1 flex items-center space-x-2 font-medium pl-4 text-white p-2 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 rounded-lg border-t-[0.5px] border-white/30 rounded-lg border-white/50 hover:bg-bg1 group hover:border-t-0 hover:border-b">
+                    <svg class="w-4 h-5 group-hover:text-eggplant transition-colors" fill="currentColor" viewBox="0 0 25 14">
+                        <path d="M12 6.75C13.63 6.75 15.07 7.14 16.24 7.65C17.32 8.13 18 15.21 8 10.38V12H6V10.39C6 9.21 6.68 8.13 7.76 7.66C8.93 7.14 10.37 6.75 12 6.75ZM4 7C5.1 7 6 6.1 6 5C6 3.9 5.1 3 4 3C2.9 3 2 3.9 2 5C2 6.1 2.9 7 4 7ZM5.13 8.1C4.76 8.04 4.39 8 4 8C3.01 8 2.07 8.21 1.22 8.58C0.48 8.9 0 9.62 0 10.429V12H4.5V10.39C4.5 9.56 4.73 8.78 5.13 8.1ZM20 7C21.1 7 22 6.1 22 5C22 3.9 21.1 3 20 3C18.9 3 18 3.9 18 5C18 6.1 18.9 7 20 7ZM24 10.429C24 9.62 23.52 8.9 22.78 8.58C21.93 8.21 20.99 8 20 8C19.61 8 19.24 8.04 18.87 8.1C19.27 8.78 19.5 9.56 19.5 10.39V12H24V10.429ZM12 0C13.66 0 15 1.34 15 3C15 4.66 13.66 6 12 6C10.34 6 9 4.66 9 3C9 1.34 10.34 0 12 0Z"/>
+                    </svg>
+                    <p class="group-hover:text-eggplant"><span>RSO</span></p>
+                </div>
+                <div onclick="showContent('settings')" class="bg-bg1 flex items-center space-x-2 font-medium pl-4 text-white p-2 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 rounded-lg border-t-[0.5px] border-white/30 rounded-lg border-white/50 hover:bg-bg1 group hover:border-t-0 hover:border-b">
+                    <svg class="w-4 h-5 group-hover:text-eggplant transition-colors" fill="currentColor" viewBox="0 0 15 14">
+                        <path d="M8.73983 0C9.01581 0.000190676 9.23983 0.223975 9.23983 0.5V3.11426L11.5055 1.80664C11.7445 1.66862 12.0509 1.75038 12.189 1.98926L13.9312 5.00781C14.0692 5.24696 13.9867 5.55235 13.7476 5.69043L11.4801 6.99902L13.7476 8.30859C13.9867 8.44662 14.069 8.7521 13.9312 8.99121L12.189 12.0098C12.051 12.2488 11.7455 12.3303 11.5064 12.1924L9.23983 10.8828V13.5C9.23983 13.776 9.01581 13.9998 8.73983 14H5.25546C4.97945 13.9998 4.75546 13.776 4.75546 13.5V10.8828L2.49178 12.1904C2.2527 12.3282 1.94715 12.2469 1.80917 12.0078L0.0669785 8.98926C-0.0705754 8.75037 0.0110833 8.44481 0.249596 8.30664L2.51327 6.99902L0.250572 5.69238C0.0116776 5.55427 -0.0708615 5.24882 0.0669785 5.00977L1.80917 1.99121C1.94717 1.75244 2.25282 1.67103 2.49178 1.80859L4.75546 3.11523V0.5C4.75546 0.223956 4.97945 0.000159176 5.25546 0H8.73983ZM6.9996 5.12695C5.96549 5.12695 5.12655 5.96568 5.12655 7C5.12668 8.03421 5.96557 8.87305 6.9996 8.87305C8.0334 8.87279 8.87153 8.03405 8.87167 7C8.87167 5.96584 8.03348 5.12721 6.9996 5.12695Z" />
+                    </svg>
+                    <p class="group-hover:text-eggplant"><span>Settings</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-content flex items-center w-full pb-10 px-6"> <!-- Added sidebar-content here -->
+            <div class="flex w-full h-auto p-0.5 animate-background [animation-duration:_6s] bg-gradient-to-r from-eggplant to-selected-cyan rounded-lg">
+                <div class="bg-bg1 flex flex-row space-x-2 items-center justify-center w-full px-4 font-medium text-white p-2 rounded-md transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 hover:bg-bg1 group hover:border-t-0 hover:border-b">
+                    <p class="group-hover:text-eggplant"><span>Logout</span></p>
+                    <svg class="w-4 h-5 group-hover:text-eggplant transition-colors" fill="currentColor" viewBox="0 0 15 14">
+                        <path d="M8.73983 0C9.01581 0.000190676 9.23983 0.223975 9.23983 0.5V3.11426L11.5055 1.80664C11.7445 1.66862 12.0509 1.75038 12.189 1.98926L13.9312 5.00781C14.0692 5.24696 13.9867 5.55235 13.7476 5.69043L11.4801 6.99902L13.7476 8.30859C13.9867 8.44662 14.069 8.7521 13.9312 8.99121L12.189 12.0098C12.051 12.2488 11.7455 12.3303 11.5064 12.1924L9.23983 10.8828V13.5C9.23983 13.776 9.01581 13.9998 8.73983 14H5.25546C4.97945 13.9998 4.75546 13.776 4.75546 13.5V10.8828L2.49178 12.1904C2.2527 12.3282 1.94715 12.2469 1.80917 12.0078L0.0669785 8.98926C-0.0705754 8.75037 0.0110833 8.44481 0.249596 8.30664L2.51327 6.99902L0.250572 5.69238C0.0116776 5.55427 -0.0708615 5.24882 0.0669785 5.00977L1.80917 1.99121C1.94717 1.75244 2.25282 1.67103 2.49178 1.80859L4.75546 3.11523V0.5C4.75546 0.223956 4.97945 0.000159176 5.25546 0H8.73983ZM6.9996 5.12695C5.96549 5.12695 5.12655 5.96568 5.12655 7C5.12668 8.03421 5.96557 8.87305 6.9996 8.87305C8.0334 8.87279 8.87153 8.03405 8.87167 7C8.87167 5.96584 8.03348 5.12721 6.9996 5.12695Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 w-full h-screen p-8 h-screen overflow-y-auto text-naturalWhite ">
+        <div id="content-overview" class="flex flex-col w-full h-screen content space-y-8 p-4">
+
+            <!-- Header Hero -->
+           <div class="flex flex-row w-full h-auto justify-between items-center">
+                <div class="flex flex-col ">
+                    <div class="flex flex-row">
+                        <p class="text-xl text-white font-bold"><span>Welcome back,</span></p>
+                        <p id="nameContainer" class="ml-2 text-xl text-white font-bold"><span>John Doe</span></p>
+                    </div>
+                     <p id="orgNameContainer" class="text-white text- font-regular"><span>ORG John Doe</span></p>
+                </div>
+                <div class="flex flex-row  items-center space-x-8">
+                    
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5.57966 2.08L4.14966 0.65C1.74966 2.48 0.169663 5.3 0.0296631 8.5H2.02966C2.17966 5.85 3.53966 3.53 5.57966 2.08V2.08ZM17.9697 8.5H19.9697C19.8197 5.3 18.2397 2.48 15.8497 0.65L14.4297 2.08C16.4497 3.53 17.8197 5.85 17.9697 8.5ZM15.9997 9C15.9997 5.93 14.3597 3.36 11.4997 2.68V2C11.4997 1.17 10.8297 0.5 9.99966 0.5C9.16966 0.5 8.49966 1.17 8.49966 2V2.68C5.62966 3.36 3.99966 5.92 3.99966 9V14L1.99966 16V17H17.9997V16L15.9997 14V9ZM9.99966 20C10.1397 20 10.2697 19.99 10.3997 19.96C11.0497 19.82 11.5797 19.38 11.8397 18.78C11.9397 18.54 11.9897 18.28 11.9897 18H7.98966C7.99966 19.1 8.88966 20 9.99966 20Z" fill="#FAFAFA"/>
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-row space-x-2 items-center">
+                       <div class="w-[40px] h-[40px] rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="assets/avatar.png" alt="Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <p id="fullnameContainer" class="ml-2"><span>John Doe</span></p>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- 1st RSO details -->
+            <div class="flex w-full h-auto p-[1.5px]  animate-background [animation-duration:_6s] bg-gradient-to-r from-selected-cyan to-blueSaturated rounded-lg shadow-xl  hover:shadow-cyan-500/30 " >
+                <div class="flex flex-row w-full bg-naturalBlack h-auto rounded-lg p-4 items-center gap-4">
+                    <div class="w-100 h-100 rounded  bg-contain bg-center aspect-square">
+                        <img class="aspect-" src="assets/isiteLogo.png" alt="" srcset="">
+                    </div>
+                    <div class="flex flex-col justify-start ">
+                        <div class=" flex flex-row items-center justify-start space-x-2">
+
+                            
+                            <div class="text-4xl font-bold "><h1><span id="rso-name1">Organization Name</span></h1></div>
+                            
+                        </div>
+                        <div class=""><h1><span id="rso-description1">Organization Description</span></h1></div>
+                    </div>
+                       
+                </div>
+            </div>
+
+           <!-- 2nd box indicator box -->
+            <div class="flex flex-col space-y-2">
+                <div id="indicator_box" class="flex flex-row justify-between space-x-2">
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start items-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator1" class="flex flex-row w-full justify-start items-center space-x-2 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                                    <path d="M7.62014 2.4939C11.7755 2.4939 13.8882 5.55797 14.5156 6.66479C14.6552 6.91095 14.6552 7.20379 14.5156 7.44995C14.8884 8.55654 11.7758 11.6218 7.62014 11.6218C3.46483 11.6216 1.35289 8.55656 0.72561 7.44995C0.586082 7.20379 0.586082 6.91095 0.72561 6.66479C1.35308 5.55795 3.46517 2.4941 7.62014 2.4939ZM7.62209 4.52222C6.22174 4.52222 5.08596 5.65799 5.08596 7.05835C5.08619 8.45851 6.22188 9.59351 7.62209 9.59351C9.0222 9.59338 10.157 8.45843 10.1573 7.05835C10.1573 5.65807 9.02235 4.52234 7.62209 4.52222Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Active Rso</span></p>
+                            </div>
+                            <div id="rso-count1" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator2" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                                    <path d="M6.34146 0.682617C2.89146 0.682617 0.0914612 3.48262 0.0914612 6.93262C0.0914612 10.3826 2.89146 13.1826 6.34146 13.1826C9.79146 13.1826 12.5915 10.3826 12.5915 6.93262C12.5915 3.48262 9.79146 0.682617 6.34146 0.682617ZM3.21646 7.87012C2.69771 7.87012 2.27896 7.45137 2.27896 6.93262C2.27896 6.41387 2.69771 5.99512 3.21646 5.99512C3.73521 5.99512 4.15396 6.41387 4.15396 6.93262C4.15396 7.45137 3.73521 7.87012 3.21646 7.87012ZM6.34146 7.87012C5.82271 7.87012 5.40396 7.45137 5.40396 6.93262C5.40396 6.41387 5.82271 5.99512 6.34146 5.99512C6.86021 5.99512 7.27896 6.41387 7.27896 6.93262C7.27896 7.45137 6.86021 7.87012 6.34146 7.87012ZM9.46646 7.87012C8.94771 7.87012 8.52896 7.45137 8.52896 6.93262C8.52896 6.41387 8.94771 5.99512 9.46646 5.99512C9.98521 5.99512 10.404 6.41387 10.404 6.93262C10.404 7.45137 9.98521 7.87012 9.46646 7.87012Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Pending Activities</span></p>
+                            </div>
+                            <div id="activity-proposal-count1" class="font-bold text-xl pl-6">2</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator3" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <g clip-path="url(#clip0_1338_1330)">
+                                        <path d="M8.1192 2.18237C4.6692 2.18237 1.8692 4.98237 1.8692 8.43237C1.8692 11.8824 4.6692 14.6824 8.1192 14.6824C11.5692 14.6824 14.3692 11.8824 14.3692 8.43237C14.3692 4.98237 11.5692 2.18237 8.1192 2.18237ZM8.1192 13.4324C5.36295 13.4324 3.1192 11.1886 3.1192 8.43237C3.1192 5.67612 5.36295 3.43237 8.1192 3.43237C10.8755 3.43237 13.1192 5.67612 13.1192 8.43237C13.1192 11.1886 10.8755 13.4324 8.1192 13.4324ZM10.5442 6.11362L6.8692 9.78862L5.6942 8.61362C5.45045 8.36987 5.0567 8.36987 4.81295 8.61362C4.5692 8.85737 4.5692 9.25112 4.81295 9.49487L6.4317 11.1136C6.67545 11.3574 7.0692 11.3574 7.31295 11.1136L11.4317 6.99487C11.6755 6.75112 11.6755 6.35737 11.4317 6.11362C11.188 5.86987 10.788 5.86987 10.5442 6.11362V6.11362Z" fill="#AEB9E1"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1338_1330">
+                                            <rect width="15" height="15" fill="white" transform="translate(0.619202 0.932373)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <p class=""><span>Approved Proposals</span></p>
+                            </div>
+                            <div id="activity-count1" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row h-auto rounded-md space-x-2">
+                    <!-- Top -->
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] shadow-md shadow-naturalBlack transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col bg-naturalBlack justify-between p-4 rounded-md space-y-4">
+                            <div class="flex flex-row justify-between items-end">
+                                <div class="flex flex-row items-end space-x-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="36" viewBox="0 0 34 36" fill="none">
+                                        <g clip-path="url(#clip0_1184_10507)">
+                                            <path d="M22.6663 16.4741C25.018 16.4741 26.9021 14.52 26.9021 12.0991C26.9021 9.67829 25.018 7.72412 22.6663 7.72412C20.3146 7.72412 18.4163 9.67829 18.4163 12.0991C18.4163 14.52 20.3146 16.4741 22.6663 16.4741ZM11.333 16.4741C13.6846 16.4741 15.5688 14.52 15.5688 12.0991C15.5688 9.67829 13.6846 7.72412 11.333 7.72412C8.9813 7.72412 7.08296 9.67829 7.08296 12.0991C7.08296 14.52 8.9813 16.4741 11.333 16.4741ZM11.333 19.3908C8.03213 19.3908 1.4163 21.097 1.4163 24.495V28.1408H21.2496V24.495C21.2496 21.097 14.6338 19.3908 11.333 19.3908ZM22.6663 19.3908C22.2555 19.3908 21.788 19.42 21.2921 19.4637C22.9355 20.6887 24.083 22.3366 24.083 24.495V28.1408H32.583V24.495C32.583 21.097 25.9671 19.3908 22.6663 19.3908Z" fill="white"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1184_10507">
+                                                <rect width="34" height="35" fill="white" transform="translate(-0.000366211 0.432373)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p class="text-2xl font-bold"><span>OFFICERS</span></p>
+                                </div>
+                                <div class="flex flex-row space-x-3">
+                                    <p class="text-md font-bold"><span>MEMBERS</span></p>
+                                    <p class="font-bold"><span id="members-count1">0</span></p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-center items-center max-w-[760px]">
+                                <!-- officer Container -->
+                                <div class="flex flex-row w-full p-4 space-x-8 overflow-x-scroll overscroll-contain scrollbar-hide" id="executives-list1">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex w-2/5 h-auto bg-borderColor1 rounded-md p-[2px] shadow-md shadow-naturalBlack transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col w-full h-auto bg-naturalBlack justify-top p-4 rounded-md space-y-12">
+                           <div class="flex flex-row justify-start items-center space-x-2 ">
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                <path d="M0.757446 18.5632C0.757446 15.2495 3.44374 12.5632 6.75745 12.5632H13.7919C17.1056 12.5632 19.7919 15.2495 19.7919 18.5632V18.6988C19.7919 19.8034 18.8965 20.6988 17.7919 20.6988H2.75745C1.65288 20.6988 0.757446 19.8034 0.757446 18.6988V18.5632Z" fill="white"/>
+                                <path d="M10.2783 11.0132C13.2738 11.0132 15.7021 8.58493 15.7021 5.58949C15.7021 2.59405 13.2738 0.165771 10.2783 0.165771C7.2829 0.165771 4.85461 2.59405 4.85461 5.58949C4.85461 8.58493 7.2829 11.0132 10.2783 11.0132Z" fill="white"/>
+                            </svg>
+                            <p class="text-2xl font-bold  al"><span>ADVISER</span></p>
+                           </div>
+
+                            <div class="flex flex-col space-y-4   items-center justify-center">
+                                <div class="w-[40px] h-[40px] rounded-full overflow-hidden flex items-center justify-center">
+                                    <img alt="Avatar" class="w-full h-full object-cover" id="adviser-picture1">
+                                </div>
+                                <div class="w-full flex flex-col">
+                                    <p id="adviser-name1" class="text-center w-full"><span>Adviser Name</span></p>
+                                    <p id="positionContainer" class="text-xs text-center w-full"><span>SECA Department</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3rd box events grid -->
+            <div class="flex w-full h-auto p-[1.5px] animate-background [animation-duration:_6s] bg-borderColor1 shadow-md shadow-naturalBlack rounded-md transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                <div class="flex flex-col w-full bg-naturalBlack h-auto rounded-lg p-4">
+                    <h2 class="text-2xl font-bold text-white mb-4">Events</h2>
+                    <div class="grid grid-cols-3 gap-3 overflow-y-scroll scrollbar-hide h-[300px] rounded-lg" id="activities-list1">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="content-proposal" class=" content hidden flex flex-col w-full h-screen content space-y-8 p-4">
+ <!-- 2nd box indicator box -->
+            <div class="flex flex-col space-y-2">
+                <div id="indicator_box" class="flex flex-row justify-between space-x-2">
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start items-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator1" class="flex flex-row w-full justify-start items-center space-x-2 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                                    <path d="M7.62014 2.4939C11.7755 2.4939 13.8882 5.55797 14.5156 6.66479C14.6552 6.91095 14.6552 7.20379 14.5156 7.44995C14.8884 8.55654 11.7758 11.6218 7.62014 11.6218C3.46483 11.6216 1.35289 8.55656 0.72561 7.44995C0.586082 7.20379 0.586082 6.91095 0.72561 6.66479C1.35308 5.55795 3.46517 2.4941 7.62014 2.4939ZM7.62209 4.52222C6.22174 4.52222 5.08596 5.65799 5.08596 7.05835C5.08619 8.45851 6.22188 9.59351 7.62209 9.59351C9.0222 9.59338 10.157 8.45843 10.1573 7.05835C10.1573 5.65807 9.02235 4.52234 7.62209 4.52222Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Active Members</span></p>
+                            </div>
+                            <div id="members-count2" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator2" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                                    <path d="M6.34146 0.682617C2.89146 0.682617 0.0914612 3.48262 0.0914612 6.93262C0.0914612 10.3826 2.89146 13.1826 6.34146 13.1826C9.79146 13.1826 12.5915 10.3826 12.5915 6.93262C12.5915 3.48262 9.79146 0.682617 6.34146 0.682617ZM3.21646 7.87012C2.69771 7.87012 2.27896 7.45137 2.27896 6.93262C2.27896 6.41387 2.69771 5.99512 3.21646 5.99512C3.73521 5.99512 4.15396 6.41387 4.15396 6.93262C4.15396 7.45137 3.73521 7.87012 3.21646 7.87012ZM6.34146 7.87012C5.82271 7.87012 5.40396 7.45137 5.40396 6.93262C5.40396 6.41387 5.82271 5.99512 6.34146 5.99512C6.86021 5.99512 7.27896 6.41387 7.27896 6.93262C7.27896 7.45137 6.86021 7.87012 6.34146 7.87012ZM9.46646 7.87012C8.94771 7.87012 8.52896 7.45137 8.52896 6.93262C8.52896 6.41387 8.94771 5.99512 9.46646 5.99512C9.98521 5.99512 10.404 6.41387 10.404 6.93262C10.404 7.45137 9.98521 7.87012 9.46646 7.87012Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Pending Activities</span></p>
+                            </div>
+                            <div id="activity-count2" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator3" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <g clip-path="url(#clip0_1338_1330)">
+                                        <path d="M8.1192 2.18237C4.6692 2.18237 1.8692 4.98237 1.8692 8.43237C1.8692 11.8824 4.6692 14.6824 8.1192 14.6824C11.5692 14.6824 14.3692 11.8824 14.3692 8.43237C14.3692 4.98237 11.5692 2.18237 8.1192 2.18237ZM8.1192 13.4324C5.36295 13.4324 3.1192 11.1886 3.1192 8.43237C3.1192 5.67612 5.36295 3.43237 8.1192 3.43237C10.8755 3.43237 13.1192 5.67612 13.1192 8.43237C13.1192 11.1886 10.8755 13.4324 8.1192 13.4324ZM10.5442 6.11362L6.8692 9.78862L5.6942 8.61362C5.45045 8.36987 5.0567 8.36987 4.81295 8.61362C4.5692 8.85737 4.5692 9.25112 4.81295 9.49487L6.4317 11.1136C6.67545 11.3574 7.0692 11.3574 7.31295 11.1136L11.4317 6.99487C11.6755 6.75112 11.6755 6.35737 11.4317 6.11362C11.188 5.86987 10.788 5.86987 10.5442 6.11362V6.11362Z" fill="#AEB9E1"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1338_1330">
+                                            <rect width="15" height="15" fill="white" transform="translate(0.619202 0.932373)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <p class=""><span>Approved Proposals</span></p>
+                            </div>
+                            <div id="activity-count3" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row h-auto rounded-md space-x-2">
+                    <!-- Top -->
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] shadow-md shadow-naturalBlack transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col bg-naturalBlack justify-between p-4 rounded-md space-y-4">
+                            <div class="flex flex-row justify-between items-center">
+                                <!-- Create Proposal Header -->
+                                <div class="flex flex-row items-end space-x-2 ">
+                                    <svg  xmlns="http://www.w3.org/2000/svg" width="34" height="36" viewBox="0 0 34 36" fill="none">
+                                        <g clip-path="url(#clip0_1184_10507)">
+                                            <path d="M22.6663 16.4741C25.018 16.4741 26.9021 14.52 26.9021 12.0991C26.9021 9.67829 25.018 7.72412 22.6663 7.72412C20.3146 7.72412 18.4163 9.67829 18.4163 12.0991C18.4163 14.52 20.3146 16.4741 22.6663 16.4741ZM11.333 16.4741C13.6846 16.4741 15.5688 14.52 15.5688 12.0991C15.5688 9.67829 13.6846 7.72412 11.333 7.72412C8.9813 7.72412 7.08296 9.67829 7.08296 12.0991C7.08296 14.52 8.9813 16.4741 11.333 16.4741ZM11.333 19.3908C8.03213 19.3908 1.4163 21.097 1.4163 24.495V28.1408H21.2496V24.495C21.2496 21.097 14.6338 19.3908 11.333 19.3908ZM22.6663 19.3908C22.2555 19.3908 21.788 19.42 21.2921 19.4637C22.9355 20.6887 24.083 22.3366 24.083 24.495V28.1408H32.583V24.495C32.583 21.097 25.9671 19.3908 22.6663 19.3908Z" fill="white"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1184_10507">
+                                                <rect width="34" height="35" fill="white" transform="translate(-0.000366211 0.432373)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p class="text-2xl font-bold"><span>Create Proposal</span></p>
+                                </div>
+                                <button   id="create-now-button" type="button" class="flex flex-row items-end space-x-2 focus:outline-none focus:ring-2 focus:ring-eggplant" aria-label="Create Now" onclick="createEvent()">
+                                    <div class="flex w-full h-auto p-0.5 animate-background [animation-duration:_6s] bg-gradient-to-r from-eggplant to-selected-cyan rounded-lg">
+                                        <div class="bg-bg1 flex flex-row space-x-2 items-center justify-center w-full px-4 font-medium text-white p-2 rounded-md transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-neutralColor700 hover:bg-bg1 group hover:border-t-0 hover:border-b">
+                                            <span class="group-hover:text-eggplant">Create Now</span>
+                                            <svg class="w-5 h-5 group-hover:text-eggplant transition-colors duration-200 ease-in-out" fill="currentColor" viewBox="0 0 15 14">
+                                                <path d="M1.12463 5.6252H8.10588L5.05588 8.67519C4.81213 8.91894 4.81213 9.31894 5.05588 9.56269C5.29963 9.80644 5.69338 9.80644 5.93713 9.56269L10.0559 5.44395C10.2996 5.2002 10.2996 4.80645 10.0559 4.5627L5.94338 0.437695C5.69963 0.193945 5.30588 0.193945 5.06213 0.437695C4.81838 0.681445 4.81838 1.0752 5.06213 1.31895L8.10588 4.3752H1.12463C0.780884 4.3752 0.499634 4.65645 0.499634 5.0002C0.499634 5.34395 0.780884 5.6252 1.12463 5.6252Z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class=" w-full overflow-x-auto scrollbar-hide rounded-lg ">
+                                <!-- Inside content-proposal, update the table -->
+                                    <table class="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr class="bg-naturalBlack border-b border-gray-700">
+                                                <th class="p-2 text-sm font-semibold text-gray-400">Proponent <span class="text-blue-400"></span></th>
+                                                <th class="p-2 text-sm font-semibold text-gray-400">Email <span class="text-blue-400"></span></th>
+                                                <th class="p-2 text-sm font-semibold text-gray-400">Requirement 1 <span class="text-blue-400"></span></th>
+                                                <th class="p-2 text-sm font-semibold text-gray-400">Status <span class="text-blue-400"></span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="proposal-table-body">
+                                            <!-- Existing rows -->
+                                            <tr class="border-b border-gray-700 hover:bg-gray-800">
+                                                <td class="p-2 flex items-center space-x-2">
+                                                    <img src="assets/avatar.png" alt="Avatar" class="w-8 h-8 rounded-full">
+                                                    <div>
+                                                        <p class="text-sm">John Carter</p>
+                                                        <p class="text-xs text-gray-500">john@google.com</p>
+                                                    </div>
+                                                </td>
+                                                <td class="p-2">
+                                                    <p class="text-sm">Email@gmail.com</p>
+                                                </td>
+                                                <td class="p-2">
+                                                    <a href="#" class="text-sm text-blue-400 hover:underline">Document1.pdf</a>
+                                                </td>
+                                                <td class="p-2">
+                                                    <span class="inline-block px-2 py-1 bg-green-500 text-white text-xs rounded-full">Pending</span>
+                                                    <button class="ml-2 text-gray-400 hover:text-white">
+                                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                            <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
+                                                        </svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <!-- Add more rows as needed -->
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3rd box events grid -->
+            <div class="flex w-full h-auto p-[1.5px] animate-background [animation-duration:_6s] bg-borderColor1 shadow-md shadow-naturalBlack rounded-md transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                <div class="flex flex-col w-full bg-naturalBlack h-auto rounded-lg p-4">
+                    <h2 class="text-2xl font-bold text-white mb-4">Submitted Proposals</h2>
+                    <div class="grid grid-cols-3 gap-3 overflow-y-scroll scrollbar-hide h-[300px] rounded-lg">
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                        <div class="w-[350px] h-[350px] bg-cover bg-center rounded-lg" style="background-image: url('assets/eventTemp.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content-my_rso" class="content hidden flex flex-col w-full h-screen content space-y-8 p-4">
+            <!-- 1st RSO details -->
+            <div class="flex w-full h-auto p-[1.5px]  animate-background [animation-duration:_6s] bg-gradient-to-r from-selected-cyan to-blueSaturated rounded-lg shadow-xl  hover:shadow-cyan-500/30 " >
+                <div class="flex flex-row w-full bg-naturalBlack h-auto rounded-lg p-4 items-center justify-between" >
+                    <div class="flex flex-row justify-start items-center" >
+                        <div class="w-100 h-100 rounded  bg-contain bg-center aspect-square">
+                        <img class="aspect-" src="assets/isiteLogo.png" alt="" srcset="">
+                    </div>
+                    <div class="flex flex-col justify-start ">
+                        <div class=" flex flex-row items-center justify-start space-x-2">
+
+                            
+                            <div class="text-4xl font-bold "><h1><span id="rso-name2">Organization Name</span></h1></div>
+                            
+                        </div>
+                        <div class=""><h1><span id="rso-description2">Organization Description</span></h1></div>
+                    </div>
+                    </div>
+
+                    <!-- Toggle switch -->
+                    <label class="relative inline-flex items-center cursor-pointer w-[120px] h-[32px]">
+                        <input type="checkbox" id="toggleButton" class="sr-only peer" onchange="logToggleState(this.checked)">
+                        <div class="absolute w-[50%] h-full flex items-center justify-center text-white text-sm font-bold transition-transform duration-300 peer-checked:translate-x-[100%] z-10 rounded-full  peer-checked:bg-custombggreen20 bg-custombgyellow20">
+                            <span class="peer-not-checked:content-['Open'] peer-checked:content-['Close']"></span>
+                        </div>
+                        <div class="w-full h-full  bg-customborderyellow rounded-full peer-checked:custom-bg-dark peer-checked:bg-custombggreen20 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex justify-between items-center px-1 text-white text-sm font-bold z-20">
+                            <span class="flex-1 text-center">Close</span>
+                            <span class="flex-1 text-center">Open</span>
+                        </div>
+                    </label>
+                       
+                </div>
+            </div>
+
+           <!-- 2nd box indicator box -->
+            <div class="flex flex-col space-y-2">
+                <div id="indicator_box" class="flex flex-row justify-between space-x-2">
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start items-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator1" class="flex flex-row w-full justify-start items-center space-x-2 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                                    <path d="M7.62014 2.4939C11.7755 2.4939 13.8882 5.55797 14.5156 6.66479C14.6552 6.91095 14.6552 7.20379 14.5156 7.44995C14.8884 8.55654 11.7758 11.6218 7.62014 11.6218C3.46483 11.6216 1.35289 8.55656 0.72561 7.44995C0.586082 7.20379 0.586082 6.91095 0.72561 6.66479C1.35308 5.55795 3.46517 2.4941 7.62014 2.4939ZM7.62209 4.52222C6.22174 4.52222 5.08596 5.65799 5.08596 7.05835C5.08619 8.45851 6.22188 9.59351 7.62209 9.59351C9.0222 9.59338 10.157 8.45843 10.1573 7.05835C10.1573 5.65807 9.02235 4.52234 7.62209 4.52222Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Active Rso</span></p>
+                            </div>
+                            <div id="rso-count2" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator2" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                                    <path d="M6.34146 0.682617C2.89146 0.682617 0.0914612 3.48262 0.0914612 6.93262C0.0914612 10.3826 2.89146 13.1826 6.34146 13.1826C9.79146 13.1826 12.5915 10.3826 12.5915 6.93262C12.5915 3.48262 9.79146 0.682617 6.34146 0.682617ZM3.21646 7.87012C2.69771 7.87012 2.27896 7.45137 2.27896 6.93262C2.27896 6.41387 2.69771 5.99512 3.21646 5.99512C3.73521 5.99512 4.15396 6.41387 4.15396 6.93262C4.15396 7.45137 3.73521 7.87012 3.21646 7.87012ZM6.34146 7.87012C5.82271 7.87012 5.40396 7.45137 5.40396 6.93262C5.40396 6.41387 5.82271 5.99512 6.34146 5.99512C6.86021 5.99512 7.27896 6.41387 7.27896 6.93262C7.27896 7.45137 6.86021 7.87012 6.34146 7.87012ZM9.46646 7.87012C8.94771 7.87012 8.52896 7.45137 8.52896 6.93262C8.52896 6.41387 8.94771 5.99512 9.46646 5.99512C9.98521 5.99512 10.404 6.41387 10.404 6.93262C10.404 7.45137 9.98521 7.87012 9.46646 7.87012Z" fill="#AEB9E1"/>
+                                </svg>
+                                <p class=""><span>Pending Activities</span></p>
+                            </div>
+                            <div id="activity-proposal-count2" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-110 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col h-full justify-start bg-naturalBlack rounded-md p-4">
+                            <div id="indicator3" class="flex flex-row w-full justify-start items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <g clip-path="url(#clip0_1338_1330)">
+                                        <path d="M8.1192 2.18237C4.6692 2.18237 1.8692 4.98237 1.8692 8.43237C1.8692 11.8824 4.6692 14.6824 8.1192 14.6824C11.5692 14.6824 14.3692 11.8824 14.3692 8.43237C14.3692 4.98237 11.5692 2.18237 8.1192 2.18237ZM8.1192 13.4324C5.36295 13.4324 3.1192 11.1886 3.1192 8.43237C3.1192 5.67612 5.36295 3.43237 8.1192 3.43237C10.8755 3.43237 13.1192 5.67612 13.1192 8.43237C13.1192 11.1886 10.8755 13.4324 8.1192 13.4324ZM10.5442 6.11362L6.8692 9.78862L5.6942 8.61362C5.45045 8.36987 5.0567 8.36987 4.81295 8.61362C4.5692 8.85737 4.5692 9.25112 4.81295 9.49487L6.4317 11.1136C6.67545 11.3574 7.0692 11.3574 7.31295 11.1136L11.4317 6.99487C11.6755 6.75112 11.6755 6.35737 11.4317 6.11362C11.188 5.86987 10.788 5.86987 10.5442 6.11362V6.11362Z" fill="#AEB9E1"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1338_1330">
+                                            <rect width="15" height="15" fill="white" transform="translate(0.619202 0.932373)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <p class=""><span>Approved Proposals</span></p>
+                            </div>
+                            <div id="activity-count4" class="font-bold text-xl pl-6">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row h-auto rounded-md space-x-2">
+                    <!-- Top -->
+                    <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] shadow-md shadow-naturalBlack transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col bg-naturalBlack justify-between p-4 rounded-md space-y-4">
+                            <div class="flex flex-row justify-between items-end">
+                                <div class="flex flex-row items-end space-x-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="36" viewBox="0 0 34 36" fill="none">
+                                        <g clip-path="url(#clip0_1184_10507)">
+                                            <path d="M22.6663 16.4741C25.018 16.4741 26.9021 14.52 26.9021 12.0991C26.9021 9.67829 25.018 7.72412 22.6663 7.72412C20.3146 7.72412 18.4163 9.67829 18.4163 12.0991C18.4163 14.52 20.3146 16.4741 22.6663 16.4741ZM11.333 16.4741C13.6846 16.4741 15.5688 14.52 15.5688 12.0991C15.5688 9.67829 13.6846 7.72412 11.333 7.72412C8.9813 7.72412 7.08296 9.67829 7.08296 12.0991C7.08296 14.52 8.9813 16.4741 11.333 16.4741ZM11.333 19.3908C8.03213 19.3908 1.4163 21.097 1.4163 24.495V28.1408H21.2496V24.495C21.2496 21.097 14.6338 19.3908 11.333 19.3908ZM22.6663 19.3908C22.2555 19.3908 21.788 19.42 21.2921 19.4637C22.9355 20.6887 24.083 22.3366 24.083 24.495V28.1408H32.583V24.495C32.583 21.097 25.9671 19.3908 22.6663 19.3908Z" fill="white"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1184_10507">
+                                                <rect width="34" height="35" fill="white" transform="translate(-0.000366211 0.432373)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p class="text-2xl font-bold"><span>OFFICERS</span></p>
+                                </div>
+                                <div class="flex flex-row space-x-3">
+                                    <p class="text-md font-bold"><span>MEMBERS</span></p>
+                                    <p class="font-bold"><span>100</span></p>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-center items-center max-w-[760px]">
+                                <!-- officer Container -->
+                                <div class="flex flex-row w-full p-4 space-x-8 overflow-x-scroll overscroll-contain scrollbar-hide" id="executives-list2"> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex w-2/5 h-auto bg-borderColor1 rounded-md p-[2px] shadow-md shadow-naturalBlack transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                        <div class="flex flex-col w-full h-auto bg-naturalBlack justify-top p-4 rounded-md space-y-12">
+                           <div class="flex flex-row justify-start items-center space-x-2 ">
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                <path d="M0.757446 18.5632C0.757446 15.2495 3.44374 12.5632 6.75745 12.5632H13.7919C17.1056 12.5632 19.7919 15.2495 19.7919 18.5632V18.6988C19.7919 19.8034 18.8965 20.6988 17.7919 20.6988H2.75745C1.65288 20.6988 0.757446 19.8034 0.757446 18.6988V18.5632Z" fill="white"/>
+                                <path d="M10.2783 11.0132C13.2738 11.0132 15.7021 8.58493 15.7021 5.58949C15.7021 2.59405 13.2738 0.165771 10.2783 0.165771C7.2829 0.165771 4.85461 2.59405 4.85461 5.58949C4.85461 8.58493 7.2829 11.0132 10.2783 11.0132Z" fill="white"/>
+                            </svg>
+                            <p class="text-2xl font-bold  al"><span>ADVISER</span></p>
+                           </div>
+
+                            <div class="flex flex-col space-y-4   items-center justify-center">
+                                <div class="w-[40px] h-[40px] rounded-full overflow-hidden flex items-center justify-center">
+                                    <img alt="Avatar" class="w-full h-full object-cover" id="adviser-picture2">
+                                </div>
+                                <div class="w-full flex flex-col">
+                                    <p id="fullnameContainer" class="text-center w-full"><span id="adviser-name2">Adviser Name</span></p>
+                                    <p id="positionContainer" class="text-xs text-center w-full"><span>SECA Department</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3rd box events grid -->
+            <div class="flex w-full h-auto p-[1.5px] animate-background [animation-duration:_6s] bg-borderColor1 shadow-md shadow-naturalBlack rounded-md transition ease-in-out delay-90 hover:scale-105 duration-300 hover:shadow-xl  hover:shadow-cyan-500/30">
+                <div class="flex flex-col w-full bg-naturalBlack h-auto rounded-lg p-4">
+                    <h2 class="text-2xl font-bold text-white mb-4">Events</h2>
+                    <div class="grid grid-cols-3 gap-3 overflow-y-scroll scrollbar-hide h-[300px] rounded-lg" id="activities-list2">
+                        
+                    </div>
+                </div>
+            </div>                                    
+        </div>
+        <div id="content-license" class="content flex hidden h-screen w-full flex-col items-center justify-start space-y-8 p-4">
+
+            <!-- 1st RSO details -->
+            <div class="flex w-full h-auto p-[1.5px]  animate-background [animation-duration:_6s] bg-gradient-to-r from-selected-cyan to-blueSaturated rounded-lg shadow-xl  hover:shadow-cyan-500/30 " >
+                <div class="flex flex-row w-full bg-naturalBlack h-auto rounded-lg p-4 items-center gap-4">
+                    <div class="w-100 h-100 rounded  bg-contain bg-center aspect-square">
+                        <img class="aspect-" src="assets/isiteLogo.png" alt="" srcset="">
+                    </div>
+                    <div class="flex flex-col justify-start ">
+                        <div class=" flex flex-row items-center justify-start space-x-2">
+
+                            
+                            <div class="text-4xl font-bold "><h1><span id="rso-name3">Organization Name</span></h1></div>
+                            
+                        </div>
+                        <div class=""><h1><span id="rso-description3">Organization Description</span></h1></div>
+                    </div>
+                       
+                </div>
+            </div>
+
+            <div class="w-full h-auto bg-borderColor1 rounded-md p-[2px] transition ease-in-out delay-90 hover:scale-105 duration-300 shadow-md shadow-naturalBlack hover:shadow-xl  hover:shadow-cyan-500/30">
+                <div class=" flex flex-row w-full h-full items-center justify-center gap-6 bg-naturalBlack rounded-md p-2 shadow-md p-2">
+                    <!-- Drop Box -->
+                        <div class="w-ull h-full bg-gradient-to-r from-selected-cyan to-blueSaturated rounded-lg shadow-xl p-[1px]">
+                            <div class="flex h-full w-full flex-col items-center justify-center rounded-lg bg-bg1">
+                                <div class="group relative flex h-full flex-col items-start justify-start gap-2.5 self-stretch rounded-xl bg-transparent p-2.5" id="drop-box">
+                                    <input type="file" accept=".doc,.docx" class="absolute inset-0 h-full w-full cursor-pointer opacity-0" id="file-input" />
+                                    <div class="inline-flex flex-1 items-start justify-center gap-2.5 self-stretch p-3">
+                                    <div class="relative h-11 w-0 origin-top-left rotate-90 overflow-hidden">
+                                        <div class="absolute top-0 left-0 h-11 w-11"></div>
+                                        <div class="absolute top-[3.75px] left-[5.62px] h-9 w-8 bg-gray-600"></div>
+                                    </div>
+                                    </div>
+                                    <div class="flex-1 justify-center self-stretch text-center text-sm font-light text-neutral-500 uppercase">Drag & drop your .doc here or click to browse</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <!-- Attachments Section -->
+                        <div class="flex flex-col items-start justify-between" style="flex: 1;">
+                            <div class="inline-flex h-14 items-center justify-between self-stretch">
+                            <div class="relative h-3.5 w-28">
+                                <div class="absolute top-0 left-0 h-3.5 w-3.5 overflow-hidden">
+                                    <div class="absolute top-0 left-0 h-3.5 w-3.5"></div>
+                                    <div class="absolute top-[1.25px] left-[2.50px] h-3 w-2.5 bg-indigo-300"></div>
+                                </div>
+                                <div class="absolute top-0 inline-flex items-start justify-start gap-2.5 pt-px">
+                                    <div class="justify-start text-sm leading-none font-medium text-white">Attachments</div>
+                                </div>
+                            </div>
+                            <button id="renew-button" class="w-28 h-8 bg-blue-600 rounded-[5px] text-white text-xs font-bold uppercase">Renew</button>
+                                
+                            </button>
+                            </div>
+                            <div class="inline-flex h-48 items-start justify-start gap-2.5 self-stretch rounded p-2.5 shadow-[1px_1px_1px_0px_rgba(16,25,52,0.40)] outline outline-[0.60px] outline-offset-[-0.60px] outline-gray-700">
+                            <div class="flex items-start justify-end gap-2">
+                                <div id="attachment-list" class="justify-start text-xs leading-none font-medium text-indigo-300">No file uploaded</div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="content-users" class="content hidden">
+            <h1 class="text-2xl text-white font-bold">Users</h1>
+            <p class="text-white">This is the Users content.</p>
+        </div>
+        <div id="content-rso" class="content hidden">
+             <div class="w-full max-w-4xl mx-auto bg-naturalBlack rounded-lg shadow-lg p-6">
+                <!-- Search Bar -->
+                <div class="mb-6">
+                    <input type="text" id="searchBar" placeholder="Search for an RSO..." class="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-selected-cyan">
+                </div>
+
+                <!-- RSO Items Grid -->
+                <div id="rsoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id="content-settings" class="content hidden">
+            <h1 class="text-2xl text-white font-bold">Settings</h1>
+            <p class="text-white">This is the Settings content.</p>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="proposal-modal" class="fixed inset-0 flex justify-center items-center bg-naturalBlack bg-opacity-50 backdrop-blur-sm hidden z-50">
+        <div class="w-[845px] bg-transparent flex flex-col max-h-[90vh] overflow-y-auto rounded-[10px]">
+            <div class="flex-1 p-8 bg-neutral-900 outline outline-1 outline-blue-600 flex flex-col gap-8">
+                <div class="flex justify-between items-center">
+                    <div class="text-white text-2xl font-bold">Create Proposal</div>
+                    <button id="cancel-proposal" class="w-28 h-8 bg-neutral-800 rounded-[5px] border border-blue-600 text-white text-xs font-bold uppercase">Cancel</button>
+                </div>
+                <form id="proposal-form" class="flex flex-col gap-6">
+                    <div class="p-6 flex flex-col gap-4">
+                        <div class="flex items-center gap-2">
+                            <svg width="15" height="16" viewBox="0 0 15 16" fill="none">
+                                <path d="M0.839111 13.7667C0.839111 11.3232 2.81998 9.34229 5.26351 9.34229H10.2168C12.6604 9.34229 14.6412 11.3232 14.6412 13.7667V13.7667C14.6412 14.5812 13.9809 15.2415 13.1664 15.2415H2.31391C1.4994 15.2415 0.839111 14.5812 0.839111 13.7667V13.7667Z" fill="#AEB9E1"/>
+                                <path d="M7.74274 8.21863C9.91476 8.21863 11.6755 6.45785 11.6755 4.28583C11.6755 2.1138 9.91476 0.353027 7.74274 0.353027C5.57071 0.353027 3.80994 2.1138 3.80994 4.28583C3.80994 6.45785 5.57071 8.21863 7.74274 8.21863Z" fill="#AEB9E1"/>
+                            </svg>  
+                            <div class="text-white text-xl font-semibold">Proponent</div>
+                        </div>
+                        <div class="w-80 flex gap-8">
+                            <!-- <img class="w-16 h-16 rounded-full" src="assets/avatar.png" alt="Avatar" /> -->
+                            <div class="flex-1 flex flex-col gap-2">
+                                <input id="proponent-name" type="text" class="bg-transparent text-white text-2xl font-medium" placeholder="Name" required />
+                                <input id="proponent-email" type="email" class="bg-transparent text-white text-sm font-medium underline" placeholder="example@sample.com" required />
+                                <input id="proponent-role" type="text" class="bg-transparent text-white text-[9.19px] font-medium" placeholder="position" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col gap-8">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                <path d="M9.83071 1.50113C9.69152 1.36254 9.52626 1.25289 9.34446 1.17853C9.16266 1.10418 8.96792 1.06658 8.77151 1.06791C8.5751 1.06923 8.38089 1.10947 8.20011 1.18628C8.01934 1.2631 7.85557 1.37497 7.71827 1.51543L2.0076 7.22619C1.86754 7.36625 1.7677 7.54138 1.71852 7.73325L1.16317 9.89976C1.12145 10.0625 1.26943 10.2105 1.4322 10.1687L3.59876 9.61306C3.79058 9.56386 3.96566 9.46403 4.10568 9.324L9.81641 3.61319C9.95691 3.47595 10.0688 3.31223 10.1457 3.13148C10.2225 2.95073 10.2627 2.75654 10.2641 2.56014C10.2654 2.36374 10.2278 2.16903 10.1534 1.98726C10.079 1.80548 9.96934 1.64026 9.83071 1.50113Z" fill="#D1DBF9" stroke="#D1DBF9" stroke-width="0.552596" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="text-violet-200 text-sm font-medium">Details</div>
+                        </div>
+                        <input id="proposal-title" type="text" class="h-16 p-4 bg-naturalBlack rounded-[10px] text-white/50 text-lg font-normal font-['Roboto']" placeholder="Add Title Here" required />
+                        <textarea id="proposal-description" class="h-32 p-4 bg-naturalBlack rounded-[10px] text-white/50 text-lg font-normal font-['Roboto']" placeholder="Description" required></textarea>
+                    </div>
+                    <div class="p-6 flex flex-col gap-3">
+                        <div class="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                <path d="M0.81189 5.4013C0.81189 5.1066 0.939016 4.82595 1.16125 4.63001L5.0221 1.22612C5.41723 0.877753 6.01313 0.877753 6.40826 1.22612L10.2691 4.63001C10.4913 4.82595 10.6185 5.1066 10.6185 5.4013V9.73886C10.6185 10.3091 10.1517 10.7714 9.57602 10.7714H1.85433C1.27861 10.7714 0.81189 10.3091 0.81189 9.73886V5.4013Z" fill="white"/>
+                            </svg>
+                            <div class="text-white text-sm font-medium">Venue</div>
+                        </div>
+                        <input id="proposal-venue" type="text" class="w-[621px] h-16 p-4 bg-naturalBlack rounded border border-borderColor1 text-naturalWhite text-xs font-medium" placeholder="Place" required />
+                        <div class="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                <g clip-path="url(#clip0_1184_11607)">
+                                    <path d="M5.05447 5.94663H4.10105V6.90004H5.05447V5.94663ZM6.9613 5.94663H6.00788V6.90004H6.9613V5.94663ZM8.86813 5.94663H7.91472V6.90004H8.86813V5.94663ZM9.82155 2.60967H9.34484V1.65625H8.39143V2.60967H4.57776V1.65625H3.62434V2.60967H3.14763C2.61848 2.60967 2.19898 3.0387 2.19898 3.56308L2.19421 10.237C2.19421 10.7614 2.61848 11.1904 3.14763 11.1904H9.82155C10.3459 11.1904 10.775 10.7614 10.775 10.237V3.56308C10.775 3.0387 10.3459 2.60967 9.82155 2.60967ZM9.82155 10.237H3.14763V4.99321H9.82155V10.237Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1184_11607">
+                                        <rect width="11.441" height="11.441" fill="white" transform="translate(0.764038 0.703125)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="text-white text-sm font-medium">Date</div>
+                        </div>
+                        <input id="proposal-date" type="date" class="w-72 h-16 p-4 bg-naturalBlack rounded border border-borderColor1 text-naturalWhite text-xs font-medium" required />
+                        <div class="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                <g clip-path="url(#clip0_1184_11634)">
+                                    <path d="M6.47973 1.69482C3.84829 1.69482 1.71741 3.83048 1.71741 6.46191C1.71741 9.09334 3.84829 11.229 6.47973 11.229C9.11592 11.229 11.2516 9.09334 11.2516 6.46191C11.2516 3.83048 9.11592 1.69482 6.47973 1.69482ZM6.48449 10.2756C4.37744 10.2756 2.67082 8.56896 2.67082 6.46191C2.67082 4.35486 4.37744 2.64824 6.48449 2.64824C8.59155 2.64824 10.2982 4.35486 10.2982 6.46191C10.2982 8.56896 8.59155 10.2756 6.48449 10.2756Z" fill="white"/>
+                                    <path d="M6.72288 4.07861H6.00781V6.93886L8.51053 8.4405L8.86806 7.85415L6.72288 6.58133V4.07861Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1184_11634">
+                                        <rect width="11.441" height="11.441" fill="white" transform="translate(0.764038 0.741699)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="text-white text-sm font-medium">Time</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <input id="proposal-start-time" type="time" class="w-72 h-16 p-4 bg-naturalBlack rounded border border-borderColor1 text-naturalWhite text-xs font-medium" required />
+                            <input id="proposal-end-time" type="time" class="w-72 h-16 p-4 bg-naturalBlack rounded border border-borderColor1 text-naturalWhite text-xs font-medium" required />
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="w-full max-w-2xl bg-[#0A0F1F] rounded-lg p-6">
+                      <!-- Drop Box -->
+                        <div class="p-6 flex gap-6">
+                            <div class="w-72 h-64 p-6 rounded-xl outline outline-1 outline-blue-600 flex flex-col gap-3">
+                                <div id="drop-box" class="h-52 p-2.5 rounded-xl outline outline-1 outline-stone-300 flex flex-col justify-center items-center relative">
+                                    <input id="proposal-file" type="file" accept=".doc,.docx" class="absolute inset-0 h-full w-full cursor-pointer opacity-0" required />
+                                    <div class="text-neutral-500 text-sm font-light uppercase">Drag & drop your .doc or .docx here or click to browse</div>
+                                </div>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-4">
+                                <div class="flex items-center gap-1">
+                                    <div class="w-3.5 h-3.5 bg-indigo-300"></div>
+                                    <div class="text-white text-sm font-medium">Attachments</div>
+                                </div>
+                                <div id="attachment-list" class="h-48 p-2.5 rounded border border-gray-700 text-indigo-300 text-xs font-medium">No file uploaded</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button id="submit-proposal" type="submit" class="w-28 h-8 bg-blue-600 rounded-[5px] text-white text-xs font-bold uppercase">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+     <script src="app.js"></script>
+</body>
+</html>
